@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="theme-color" content="#222">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+    <link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/panda-32x32.png?v=6.6.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/panda-16x16.png?v=6.6.0">
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            root: '/',
+            scheme: 'Mist',
+            version: '6.6.0',
+            sidebar: {
+                "position": "left",
+                "display": "post",
+                "offset": 12,
+                "b2t": false,
+                "scrollpercent": false,
+                "onmobile": false
+            },
+            fancybox: false,
+            fastclick: false,
+            lazyload: false,
+            tabs: true,
+            motion: {
+                "enable": true,
+                "async": false,
+                "transition": {
+                    "post_block": "fadeIn",
+                    "post_header": "slideDownIn",
+                    "post_body": "slideDownIn",
+                    "coll_header": "slideLeftIn",
+                    "sidebar": "slideUpIn"
+                }
+            },
+            algolia: {
+                applicationID: '',
+                apiKey: '',
+                indexName: '',
+                hits: {
+                    "per_page": 10
+                },
+                labels: {
+                    "input_placeholder": "Search for Posts",
+                    "hits_empty": "We didn't find any results for the search: ${query}",
+                    "hits_stats": "${hits} results found in ${time} ms"
+                }
+            }
+        };
+    </script>
+    <meta name="description" content="最近在学Java，嫌IDE太重，就自己摸索了一下用VScode部署Java开发环境的方法，比较适合轻度入门级、以及对比较熟VScode不想换编辑器的搞法。">
+    <meta name="keywords" content="编辑器,VSCode,JAVA,Windows10">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="win10+vscode部署java开发环境">
+    <meta property="og:url" content="https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/index.html">
+    <meta property="og:site_name" content="lx熊猫桑的自留地">
+    <meta property="og:description" content="最近在学Java，嫌IDE太重，就自己摸索了一下用VScode部署Java开发环境的方法，比较适合轻度入门级、以及对比较熟VScode不想换编辑器的搞法。">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:updated_time" content="2018-12-11T03:15:24.271Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="win10+vscode部署java开发环境">
+    <meta name="twitter:description" content="最近在学Java，嫌IDE太重，就自己摸索了一下用VScode部署Java开发环境的方法，比较适合轻度入门级、以及对比较熟VScode不想换编辑器的搞法。">
+    <link rel="canonical" href="https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/">
+    <script type="text/javascript" id="page.configurations">
+        CONFIG.page = {
+            sidebar: "",
+        };
+    </script>
+    <title>win10+vscode部署java开发环境 | lx熊猫桑的自留地</title>
+    <noscript>
+        <style type="text/css">
+            .use-motion .motion-element,
+            .use-motion .brand,
+            .use-motion .menu-item,
+            .sidebar-inner,
+            .use-motion .post-block,
+            .use-motion .pagination,
+            .use-motion .comments,
+            .use-motion .post-header,
+            .use-motion .post-body,
+            .use-motion .collection-title {
+                opacity: initial;
+            }
+
+            .use-motion .logo,
+            .use-motion .site-title,
+            .use-motion .site-subtitle {
+                opacity: initial;
+                top: initial;
+            }
+
+            .use-motion {
+                .logo-line-before i {
+                    left: initial;
+                }
+
+                .logo-line-after i {
+                    right: initial;
+                }
+            }
+        </style>
+    </noscript>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+    <div class="container sidebar-position-left page-post-detail">
+        <div class="headband"></div>
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            <div class="header-inner">
+                <div class="site-brand-wrapper">
+                    <div class="site-meta ">
+                        <div class="custom-logo-site-title">
+                            <a href="/" class="brand" rel="start">
+                                <span class="logo-line-before"><i></i></span>
+                                <span class="site-title">lx熊猫桑的自留地</span>
+                                <span class="logo-line-after"><i></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="site-nav-toggle">
+                        <button aria-label="切换导航栏">
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <nav class="site-nav">
+                    <ul id="menu" class="menu">
+                        <li class="menu-item menu-item-home">
+                            <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+                        </li>
+                        <li class="menu-item menu-item-tags">
+                            <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+                        </li>
+                        <li class="menu-item menu-item-categories">
+                            <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        <div id="posts" class="posts-expand">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+                                <div class="post-block">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                        <meta itemprop="name" content="lx熊猫桑">
+                                        <meta itemprop="description" content="">
+                                        <meta itemprop="image" content="/images/avatar.jpg">
+                                    </span>
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+                                        <meta itemprop="name" content="lx熊猫桑的自留地">
+                                    </span>
+                                    <header class="post-header">
+                                        <h1 class="post-title" itemprop="name headline">win10+vscode部署java开发环境 </h1>
+                                        <div class="post-meta">
+                                            <span class="post-time">
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-calendar-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">发表于</span>
+                                                <time title="创建时间：2018-05-15 16:36:44" itemprop="dateCreated datePublished" datetime="2018-05-15T16:36:44+08:00">2018-05-15</time>
+                                            </span>
+                                            <span class="post-category">
+                                                <span class="post-meta-divider">|</span>
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-folder-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">分类于</span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/开发工具/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span>
+                                            </span>
+                                        </div>
+                                    </header>
+                                    <div class="post-body" itemprop="articleBody">
+                                        <p>最近在学Java，嫌IDE太重，就自己摸索了一下用VScode部署Java开发环境的方法，比较适合轻度入门级、以及对比较熟VScode不想换编辑器的搞法。 <a id="more"></a>
+                                        </p>
+                                        <ol>
+                                            <li><strong>部署JDK</strong><br>其实之前在大概1.5的时候就看过一点Java的东西，也装过JDK还有JRE，也装过Eclipse，但是前边那俩太占系统资源了，后边的又太丑，没多久就让我全给卸了。这回一开始装的时候，其实我也试过装JDK，但是也还是和之前一个德行，直到我看到了<a href="http://openjdk.java.net/" target="_blank" rel="noopener">OpenJDK</a>……卧槽要的就是这个！直接到它的下载里把东西拖回来解压，然后到开始菜单打开“设置”（齿轮图标），直接搜索“高级”，点击“查看高级系统设置”打开“系统属性”窗口，再点“环境变量…”按钮打开“环境变量”，在上边用户变量里加个<code>JAVA_HOME</code>的变量，值就是你JDK解压到的位置（可以直接用浏览目录选择）；再点开“Path”，在下边新增一项<code>%JAVA_HOME%\bin</code>，全部确定退出去就可以了。这时可以用<kbd>Win</kbd>+<kbd>R</kbd>并输入<code>cmd</code>打开命令提示符窗口，输入<code>java -version</code>能看到OpenJDK版本信息的话，就说明搞定了。</li>
+                                            <li><strong>部署Maven</strong><br>Maven其实也是类似于JDK这种，直接去<a href="https://maven.apache.org/" target="_blank" rel="noopener">官网</a>点Download，直接找到Binary zip archive的Link直接下载就行，也是拖到一个地方解压，然后点开“环境变量”，在用户变量里分别加个<code>M2_HOME</code>，都指向解压目录，然后再到Path里加个<code>%M2_HOME%\bin</code>全部确定就可以了。验证时到cmd里输下<code>mvn -v</code>，同样如果有版本信息那就是成功了。</li>
+                                            <li><strong>在VScode里安装相关插件及配置</strong><br>Microsoft有个官方的插件“Java Extension Pack”，点开它的“依赖项”可以看到就是需要装的几个插件，可以直接装这个（会附带把依赖项都装上）或者单装都可以，装好以设置下<code>java.home</code>、<code>maven.executable.path</code>和<code>maven.terminal.useJavaHome</code>基本就能跑了，当然记得把<code>terminal.integrated.shell.windows</code>也要一并设置好。</li>
+                                            <li>
+                                                <p><strong>配置MAVEN国内代理</strong><br>首先打开MAVEN的解压目录，然后找到conf文件夹，把<code>settings.xml</code>文件复制到用户文件夹的<code>.m2</code>文件夹下，然后找到<code>&lt;mirrors&gt;</code>这段，添加：</p>
+                                                <figure class="highlight xml">
+                                                    <table>
+                                                        <tr>
+                                                            <td class="gutter">
+                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre>
+                                                            </td>
+                                                            <td class="code">
+                                                                <pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Maven Repository Switchboard<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo1.maven.org/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo2<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo2.maven.org/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>ibiblio<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://mirrors.ibiblio.org/pub/mirrors/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>jboss-public-repository-group<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>JBoss Public Repository Group<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repository.jboss.org/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>maven.net.cn<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>oneof the central mirrors in china<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.net.cn/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </figure>
+                                                <p>进去，保存退出。</p>
+                                            </li>
+                                            <li><strong>部署Gradle</strong><br>Gradle是Google家的构建系统工具，一般Android上用的更多些。由于语法是基于Groovy实现的，所以手写时会比XML爽不少。在安装上，Gradle跟其它工具大同小异，都是先去<a href="http://www.gradle.org/downloads" target="_blank" rel="noopener">官网下载</a>，然后解压到一个目录，再在系统里加入<code>GRADLE_HOME</code>变量，并把bin目录加入到Path里即可。<br>Gradle文档可以参考<a href="https://doc.yonyoucloud.com/doc/wiki/project/GradleUserGuide-Wiki/index.html" target="_blank" rel="noopener">Gradle 用户指南官方文档中文版</a>。</li>
+                                        </ol>
+                                    </div>
+                                    <div>
+                                        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                                            <div></div>
+                                            <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                                                <span>打赏</span>
+                                            </button>
+                                            <div id="QR" style="display: none;">
+                                                <div id="wechat" style="display: inline-block">
+                                                    <img id="wechat_qr" src="/images/wechat.png" alt="lx熊猫桑 微信支付">
+                                                    <p>微信支付</p>
+                                                </div>
+                                                <div id="alipay" style="display: inline-block">
+                                                    <img id="alipay_qr" src="/images/alipay.jpg" alt="lx熊猫桑 支付宝">
+                                                    <p>支付宝</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ul class="post-copyright">
+                                            <li class="post-copyright-author">
+                                                <strong>本文作者： </strong>lx熊猫桑</li>
+                                            <li class="post-copyright-link">
+                                                <strong>本文链接：</strong>
+                                                <a href="https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/" title="win10+vscode部署java开发环境">https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/</a>
+                                            </li>
+                                            <li class="post-copyright-license">
+                                                <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
+                                        </ul>
+                                    </div>
+                                    <footer class="post-footer">
+                                        <div class="post-tags">
+                                            <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
+                                            <a href="/tags/VSCode/" rel="tag"># VSCode</a>
+                                            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+                                            <a href="/tags/Windows10/" rel="tag"># Windows10</a>
+                                        </div>
+                                        <div class="post-nav">
+                                            <div class="post-nav-next post-nav-item">
+                                                <a href="/2017/08/02/jQTips-·-动态添加元素的清爽写法/" rel="next" title="jQTips · 动态添加元素的清爽写法">
+                                                    <i class="fa fa-chevron-left"></i> jQTips · 动态添加元素的清爽写法 </a>
+                                            </div>
+                                            <span class="post-nav-divider"></span>
+                                            <div class="post-nav-prev post-nav-item">
+                                                <a href="/2018/08/31/关于iOS-11-x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录/" rel="prev" title="关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录"> 关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录 <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+                <aside id="sidebar" class="sidebar">
+                    <div class="sidebar-inner">
+                        <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+                            <div class="site-overview">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lx熊猫桑">
+                                    <p class="site-author-name" itemprop="name">lx熊猫桑</p>
+                                    <p class="site-description motion-element" itemprop="description"></p>
+                                </div>
+                                <nav class="site-state motion-element">
+                                    <div class="site-state-item site-state-posts">
+                                        <a href="/archives">
+                                            <span class="site-state-item-count">10</span>
+                                            <span class="site-state-item-name">日志</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-categories">
+                                        <a href="/categories/index.html">
+                                            <span class="site-state-item-count">6</span>
+                                            <span class="site-state-item-name">分类</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-tags">
+                                        <a href="/tags/index.html">
+                                            <span class="site-state-item-count">21</span>
+                                            <span class="site-state-item-name">标签</span>
+                                        </a>
+                                    </div>
+                                </nav>
+                                <div class="links-of-author motion-element">
+                                    <span class="links-of-author-item">
+                                        <a href="https://github.com/MarsGT" title="GitHub &rarr; https://github.com/MarsGT" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="mailto:marsgt@qq.com" title="E-Mail &rarr; mailto:marsgt@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="https://segmentfault.com/u/marsgt" title="SegmentFault &rarr; https://segmentfault.com/u/marsgt" rel="noopener" target="_blank"><i class="fa fa-fw fa-bolt"></i>SegmentFault</a>
+                                    </span>
+                                </div>
+                                <div class="cc-license motion-element" itemprop="license">
+                                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+                    <span class="with-love" id="animate">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="author" itemprop="copyrightHolder">lx熊猫桑</span>
+                </div>
+                <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+                <span class="post-meta-divider">|</span>
+                <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+            </div>
+        </footer>
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+            window.Promise = null;
+        }
+    </script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/js.cookie.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.6.0"></script>
+</body>
+
+</html>

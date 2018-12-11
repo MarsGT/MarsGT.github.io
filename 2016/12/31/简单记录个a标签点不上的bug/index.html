@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="theme-color" content="#222">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+    <link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/panda-32x32.png?v=6.6.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/panda-16x16.png?v=6.6.0">
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            root: '/',
+            scheme: 'Mist',
+            version: '6.6.0',
+            sidebar: {
+                "position": "left",
+                "display": "post",
+                "offset": 12,
+                "b2t": false,
+                "scrollpercent": false,
+                "onmobile": false
+            },
+            fancybox: false,
+            fastclick: false,
+            lazyload: false,
+            tabs: true,
+            motion: {
+                "enable": true,
+                "async": false,
+                "transition": {
+                    "post_block": "fadeIn",
+                    "post_header": "slideDownIn",
+                    "post_body": "slideDownIn",
+                    "coll_header": "slideLeftIn",
+                    "sidebar": "slideUpIn"
+                }
+            },
+            algolia: {
+                applicationID: '',
+                apiKey: '',
+                indexName: '',
+                hits: {
+                    "per_page": 10
+                },
+                labels: {
+                    "input_placeholder": "Search for Posts",
+                    "hits_empty": "We didn't find any results for the search: ${query}",
+                    "hits_stats": "${hits} results found in ${time} ms"
+                }
+            }
+        };
+    </script>
+    <meta name="description" content="官网改版时碰到的问题。简单记录下">
+    <meta name="keywords" content="随手记,HTML,CSS">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="简单记录个a标签点不上的bug">
+    <meta property="og:url" content="https://marsgt.github.io/2016/12/31/简单记录个a标签点不上的bug/index.html">
+    <meta property="og:site_name" content="lx熊猫桑的自留地">
+    <meta property="og:description" content="官网改版时碰到的问题。简单记录下">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:updated_time" content="2018-12-11T02:39:47.818Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="简单记录个a标签点不上的bug">
+    <meta name="twitter:description" content="官网改版时碰到的问题。简单记录下">
+    <link rel="canonical" href="https://marsgt.github.io/2016/12/31/简单记录个a标签点不上的bug/">
+    <script type="text/javascript" id="page.configurations">
+        CONFIG.page = {
+            sidebar: "",
+        };
+    </script>
+    <title>简单记录个a标签点不上的bug | lx熊猫桑的自留地</title>
+    <noscript>
+        <style type="text/css">
+            .use-motion .motion-element,
+            .use-motion .brand,
+            .use-motion .menu-item,
+            .sidebar-inner,
+            .use-motion .post-block,
+            .use-motion .pagination,
+            .use-motion .comments,
+            .use-motion .post-header,
+            .use-motion .post-body,
+            .use-motion .collection-title {
+                opacity: initial;
+            }
+
+            .use-motion .logo,
+            .use-motion .site-title,
+            .use-motion .site-subtitle {
+                opacity: initial;
+                top: initial;
+            }
+
+            .use-motion {
+                .logo-line-before i {
+                    left: initial;
+                }
+
+                .logo-line-after i {
+                    right: initial;
+                }
+            }
+        </style>
+    </noscript>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+    <div class="container sidebar-position-left page-post-detail">
+        <div class="headband"></div>
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            <div class="header-inner">
+                <div class="site-brand-wrapper">
+                    <div class="site-meta ">
+                        <div class="custom-logo-site-title">
+                            <a href="/" class="brand" rel="start">
+                                <span class="logo-line-before"><i></i></span>
+                                <span class="site-title">lx熊猫桑的自留地</span>
+                                <span class="logo-line-after"><i></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="site-nav-toggle">
+                        <button aria-label="切换导航栏">
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <nav class="site-nav">
+                    <ul id="menu" class="menu">
+                        <li class="menu-item menu-item-home">
+                            <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+                        </li>
+                        <li class="menu-item menu-item-tags">
+                            <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+                        </li>
+                        <li class="menu-item menu-item-categories">
+                            <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        <div id="posts" class="posts-expand">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+                                <div class="post-block">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2016/12/31/简单记录个a标签点不上的bug/">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                        <meta itemprop="name" content="lx熊猫桑">
+                                        <meta itemprop="description" content="">
+                                        <meta itemprop="image" content="/images/avatar.jpg">
+                                    </span>
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+                                        <meta itemprop="name" content="lx熊猫桑的自留地">
+                                    </span>
+                                    <header class="post-header">
+                                        <h1 class="post-title" itemprop="name headline">简单记录个a标签点不上的bug </h1>
+                                        <div class="post-meta">
+                                            <span class="post-time">
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-calendar-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">发表于</span>
+                                                <time title="创建时间：2016-12-31 15:47:12" itemprop="dateCreated datePublished" datetime="2016-12-31T15:47:12+08:00">2016-12-31</time>
+                                            </span>
+                                            <span class="post-category">
+                                                <span class="post-meta-divider">|</span>
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-folder-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">分类于</span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span>
+                                            </span>
+                                        </div>
+                                    </header>
+                                    <div class="post-body" itemprop="articleBody">
+                                        <p>官网改版时碰到的问题。简单记录下 <a id="more"></a>：</p>
+                                        <p>【 问题 】</p>
+                                        <blockquote>
+                                            <p>官网index页面移动端测试时，发现底部页脚的a标签无论如何点不动。</p>
+                                        </blockquote>
+                                        <p>【 Debug 过程 】</p>
+                                        <blockquote>
+                                            <p>1、先是在pc端用浏览器模拟手机看了下，问题重现；</p>
+                                            <p>2、然后看了下“规则”和“计算后”面板（用的是FireFox，习惯了……分别对应Chrome的styles和computed），a标签本身的样式似乎是没问题的，周围也没啥问题……</p>
+                                            <p>3、丢到chrome里，问题依然重现，继续懵逼……</p>
+                                            <p>4、无意间关掉了移动端模拟，居然好了卧槽!!!（黑人问号脸.gif）继续懵逼……</p>
+                                            <p>5、试着用“选择元素”工具去点选a标签，居然点到了上边一个透明的空标签上（有宽高），试了几次都是如此（嗯？），然后检查发现该标签<code>position: fixed;</code>，移动端页面收缩后挤下来、整好遮挡住了a标签……至此找到原因。</p>
+                                            <p>6、因为该标签不需要响应点击事件，所以直接加了句<code>pointer-events:none</code>，问题解决。</p>
+                                        </blockquote>
+                                        <p>【 小结 】</p>
+                                        <blockquote>
+                                            <ul>
+                                                <li>其实最开始应该先试下z-index的（个人有点排斥这个样式，都是自然写法），失策失策~~</li>
+                                                <li>不要随便写fixed的透明标签……血泪教训=_=|||……</li>
+                                                <li>无比怀念FireFox的3D模式……然并卵。以后只好用“选择元素”排除类似的bug了。</li>
+                                                <li><code>pointer-events:none</code>真的是神器，省了很多js（其实是jq）“事件监听+选择器判断/过滤”的事。</li>
+                                            </ul>
+                                        </blockquote>
+                                    </div>
+                                    <div>
+                                        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                                            <div></div>
+                                            <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                                                <span>打赏</span>
+                                            </button>
+                                            <div id="QR" style="display: none;">
+                                                <div id="wechat" style="display: inline-block">
+                                                    <img id="wechat_qr" src="/images/wechat.png" alt="lx熊猫桑 微信支付">
+                                                    <p>微信支付</p>
+                                                </div>
+                                                <div id="alipay" style="display: inline-block">
+                                                    <img id="alipay_qr" src="/images/alipay.jpg" alt="lx熊猫桑 支付宝">
+                                                    <p>支付宝</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ul class="post-copyright">
+                                            <li class="post-copyright-author">
+                                                <strong>本文作者： </strong>lx熊猫桑</li>
+                                            <li class="post-copyright-link">
+                                                <strong>本文链接：</strong>
+                                                <a href="https://marsgt.github.io/2016/12/31/简单记录个a标签点不上的bug/" title="简单记录个a标签点不上的bug">https://marsgt.github.io/2016/12/31/简单记录个a标签点不上的bug/</a>
+                                            </li>
+                                            <li class="post-copyright-license">
+                                                <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
+                                        </ul>
+                                    </div>
+                                    <footer class="post-footer">
+                                        <div class="post-tags">
+                                            <a href="/tags/随手记/" rel="tag"># 随手记</a>
+                                            <a href="/tags/HTML/" rel="tag"># HTML</a>
+                                            <a href="/tags/CSS/" rel="tag"># CSS</a>
+                                        </div>
+                                        <div class="post-nav">
+                                            <div class="post-nav-next post-nav-item">
+                                                <a href="/2016/08/31/前端图片直传OSS试验/" rel="next" title="前端图片直传OSS试验">
+                                                    <i class="fa fa-chevron-left"></i> 前端图片直传OSS试验 </a>
+                                            </div>
+                                            <span class="post-nav-divider"></span>
+                                            <div class="post-nav-prev post-nav-item">
+                                                <a href="/2017/02/07/随手记-疯狂触发滚轮事件的Mac触控板/" rel="prev" title="随手记 - 疯狂触发滚轮事件的Mac触控板"> 随手记 - 疯狂触发滚轮事件的Mac触控板 <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+                <aside id="sidebar" class="sidebar">
+                    <div class="sidebar-inner">
+                        <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+                            <div class="site-overview">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lx熊猫桑">
+                                    <p class="site-author-name" itemprop="name">lx熊猫桑</p>
+                                    <p class="site-description motion-element" itemprop="description"></p>
+                                </div>
+                                <nav class="site-state motion-element">
+                                    <div class="site-state-item site-state-posts">
+                                        <a href="/archives">
+                                            <span class="site-state-item-count">10</span>
+                                            <span class="site-state-item-name">日志</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-categories">
+                                        <a href="/categories/index.html">
+                                            <span class="site-state-item-count">6</span>
+                                            <span class="site-state-item-name">分类</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-tags">
+                                        <a href="/tags/index.html">
+                                            <span class="site-state-item-count">21</span>
+                                            <span class="site-state-item-name">标签</span>
+                                        </a>
+                                    </div>
+                                </nav>
+                                <div class="links-of-author motion-element">
+                                    <span class="links-of-author-item">
+                                        <a href="https://github.com/MarsGT" title="GitHub &rarr; https://github.com/MarsGT" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="mailto:marsgt@qq.com" title="E-Mail &rarr; mailto:marsgt@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="https://segmentfault.com/u/marsgt" title="SegmentFault &rarr; https://segmentfault.com/u/marsgt" rel="noopener" target="_blank"><i class="fa fa-fw fa-bolt"></i>SegmentFault</a>
+                                    </span>
+                                </div>
+                                <div class="cc-license motion-element" itemprop="license">
+                                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+                    <span class="with-love" id="animate">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="author" itemprop="copyrightHolder">lx熊猫桑</span>
+                </div>
+                <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+                <span class="post-meta-divider">|</span>
+                <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+            </div>
+        </footer>
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+            window.Promise = null;
+        }
+    </script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/js.cookie.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.6.0"></script>
+</body>
+
+</html>
