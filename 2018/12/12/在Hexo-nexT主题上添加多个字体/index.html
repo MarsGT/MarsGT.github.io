@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="theme-next mist use-motion" lang="zh-CN">
+
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="theme-color" content="#222">
+    <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+    <link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/panda-32x32.png?v=6.6.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/panda-16x16.png?v=6.6.0">
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            root: '/',
+            scheme: 'Mist',
+            version: '6.6.0',
+            sidebar: {
+                "position": "left",
+                "display": "post",
+                "offset": 12,
+                "b2t": false,
+                "scrollpercent": false,
+                "onmobile": false
+            },
+            fancybox: false,
+            fastclick: false,
+            lazyload: false,
+            tabs: true,
+            motion: {
+                "enable": true,
+                "async": false,
+                "transition": {
+                    "post_block": "fadeIn",
+                    "post_header": "slideDownIn",
+                    "post_body": "slideDownIn",
+                    "coll_header": "slideLeftIn",
+                    "sidebar": "slideUpIn"
+                }
+            },
+            algolia: {
+                applicationID: '',
+                apiKey: '',
+                indexName: '',
+                hits: {
+                    "per_page": 10
+                },
+                labels: {
+                    "input_placeholder": "Search for Posts",
+                    "hits_empty": "We didn't find any results for the search: ${query}",
+                    "hits_stats": "${hits} results found in ${time} ms"
+                }
+            }
+        };
+    </script>
+    <meta name="description" content="折腾Hexo的第一篇，先聊聊多字体设置。">
+    <meta name="keywords" content="随手记,Hexo,Yaml,Stylus">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="在Hexo nexT主题上添加多个字体">
+    <meta property="og:url" content="https://marsgt.github.io/2018/12/12/在Hexo-nexT主题上添加多个字体/index.html">
+    <meta property="og:site_name" content="lx熊猫桑的自留地">
+    <meta property="og:description" content="折腾Hexo的第一篇，先聊聊多字体设置。">
+    <meta property="og:locale" content="zh-CN">
+    <meta property="og:updated_time" content="2018-12-12T14:09:42.728Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="在Hexo nexT主题上添加多个字体">
+    <meta name="twitter:description" content="折腾Hexo的第一篇，先聊聊多字体设置。">
+    <link rel="canonical" href="https://marsgt.github.io/2018/12/12/在Hexo-nexT主题上添加多个字体/">
+    <script type="text/javascript" id="page.configurations">
+        CONFIG.page = {
+            sidebar: "",
+        };
+    </script>
+    <title>在Hexo nexT主题上添加多个字体 | lx熊猫桑的自留地</title>
+    <noscript>
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
+
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
+
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
+
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
+    </noscript>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+    <div class="container sidebar-position-left page-post-detail">
+        <div class="headband"></div>
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            <div class="header-inner">
+                <div class="site-brand-wrapper">
+                    <div class="site-meta ">
+                        <div class="custom-logo-site-title">
+                            <a href="/" class="brand" rel="start">
+                                <span class="logo-line-before"><i></i></span>
+                                <span class="site-title">lx熊猫桑的自留地</span>
+                                <span class="logo-line-after"><i></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="site-nav-toggle">
+                        <button aria-label="切换导航栏">
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                            <span class="btn-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <nav class="site-nav">
+                    <ul id="menu" class="menu">
+                        <li class="menu-item menu-item-home">
+                            <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+                        </li>
+                        <li class="menu-item menu-item-tags">
+                            <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+                        </li>
+                        <li class="menu-item menu-item-categories">
+                            <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="content-wrap">
+                    <div id="content" class="content">
+                        <div id="posts" class="posts-expand">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+                                <div class="post-block">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/12/12/在Hexo-nexT主题上添加多个字体/">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                        <meta itemprop="name" content="lx熊猫桑">
+                                        <meta itemprop="description" content="">
+                                        <meta itemprop="image" content="/images/avatar.jpg">
+                                    </span>
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+                                        <meta itemprop="name" content="lx熊猫桑的自留地">
+                                    </span>
+                                    <header class="post-header">
+                                        <h1 class="post-title" itemprop="name headline">在Hexo nexT主题上添加多个字体 </h1>
+                                        <div class="post-meta">
+                                            <span class="post-time">
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-calendar-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">发表于</span>
+                                                <time title="创建时间：2018-12-12 21:15:56" itemprop="dateCreated datePublished" datetime="2018-12-12T21:15:56+08:00">2018-12-12</time>
+                                            </span>
+                                            <span class="post-category">
+                                                <span class="post-meta-divider">|</span>
+                                                <span class="post-meta-item-icon">
+                                                    <i class="fa fa-folder-o"></i>
+                                                </span>
+                                                <span class="post-meta-item-text">分类于</span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                                            </span>
+                                        </div>
+                                    </header>
+                                    <div class="post-body han-init-context" itemprop="articleBody">
+                                        <p>折腾Hexo的第一篇，先聊聊多字体设置。 <a id="more"></a>
+                                        </p>
+                                        <p>官方自带的主题市场溜达了一圈，也没看到什么感兴趣的，后来发现怎么好几个博客都在用nexT？那就装上试试吧。从&thinsp;Github&thinsp;上下载、安装、改设置一气呵成，清掉之前的重新生成，Bingo！<br>翻了翻这主题真的不错，要用的一些插件基本集成全了，还自带一个<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">网站</a>用来&thinsp;Step by Step&thinsp;教怎么用，真的贴心到家了~<br>使用中发现了一个痛点，就是不知道默认样式怎么设置多个字体，文档里提到的<code>next\_config.yml</code>里的<code>font</code>设置包括给到的&thinsp;Demo&thinsp;只适合单个字体，但我自己习惯上需要设置多个字体回退（包括现在在码字的&thinsp;VSCode&thinsp;都是）的，So，</p>
+                                        <p><strong>怎么办？</strong></p>
+                                        <p>上网搜了下，资料不是很多，只有一篇&thinsp;2017&thinsp;年的<a href="https://www.chenxuefei.com/2017/hexo-next-font-family/" target="_blank" rel="noopener">文章</a>提到要改<code>next\source\css\_variables\base.styl</code>文件，我一看，我去这&thinsp;Stylus&thinsp;啊，当初觉得门槛高就没碰过，没想到在这又……好吧硬着头皮去找文档。除了<a href="http://stylus-lang.com/" target="_blank" rel="noopener">官方文档</a>以外，能用的只有张鑫旭维护的<a href="https://www.zhangxinxu.com/jq/stylus/" target="_blank" rel="noopener">Stylus中文文档</a>还能看，简单瞅了几眼，然后对着代码开撸~<br>按照之前那篇文章里所写，先在<code>family</code>里设置长字符串，然后回到&thinsp;styl&thinsp;文件的函数里去除引号，但找了好几圈，也没发现stylus哪里提供了去除掉引号的方法，或者说，就没找到完整的字符串类型操作函数……于是放弃。<br>由于之前折腾&thinsp;Docker&thinsp;的时候，学了点&thinsp;Yaml&thinsp;语法，这时突然想，把配置直接写成数组形式行不行？于是我写成了这样：<br>
+                                            <figure class="highlight yaml">
+                                                <table>
+                                                    <tr>
+                                                        <td class="gutter">
+                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
+                                                        </td>
+                                                        <td class="code">
+                                                            <pre><span class="line"><span class="attr">global:</span></span><br><span class="line"><span class="attr">  external:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  family:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="bullet">-apple-system</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">BlinkMacSystemFont</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Segoe</span> <span class="string">UI</span> <span class="string">Emoji</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Helvetica</span> <span class="string">Neue</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Helvetica</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Nimbus</span> <span class="string">Sans</span> <span class="string">L</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Arial</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Liberation</span> <span class="string">Sans</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Hiragino</span> <span class="string">Sans</span> <span class="string">GB</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Source</span> <span class="string">Han</span> <span class="string">Sans</span> <span class="string">CN</span> <span class="string">Normal</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Microsoft</span> <span class="string">YaHei</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">微软雅黑</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">Wenquanyi</span> <span class="string">Micro</span> <span class="string">Hei</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">WenQuanYi</span> <span class="string">Zen</span> <span class="string">Hei</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ST</span> <span class="string">Heiti</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">SimHei</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">WenQuanYi</span> <span class="string">Zen</span> <span class="string">Hei</span> <span class="string">Sharp</span></span><br><span class="line"><span class="attr">  size:</span></span><br></pre>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </figure>
+                                        </p>
+                                        <p>再在&thinsp;styl&thinsp;文件里直接放变量，然后拼接尾部的<code>, sans-serif</code>，好的<code>hexo g</code>生成！然后惊喜的发现数组内容是以空格连接直接输出的，这……好吧，我改用自带的<code>join()</code>函数拼接下试试~但是试了几次，最后输出的内容都会被一对引号包起来，甚至连一开始的空格都没了，这……<br>一筹莫展之际，发现<code>base.styl</code>下边还有个<code>custom.styl</code>，咦？试着直接把需要的样式直接写进去：<br>
+                                            <figure class="highlight stylus">
+                                                <table>
+                                                    <tr>
+                                                        <td class="gutter">
+                                                            <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
+                                                        </td>
+                                                        <td class="code">
+                                                            <pre><span class="line"><span class="variable">$font</span>-family-base      = -apple-system, BlinkMacSystemFont, <span class="string">"Segoe UI Emoji"</span>, <span class="string">"Helvetica Neue"</span>, Helvetica, <span class="string">"Nimbus Sans L"</span>, Arial, <span class="string">"Liberation Sans"</span>, <span class="string">"Hiragino Sans GB"</span>, <span class="string">"Source Han Sans CN Normal"</span>, <span class="string">"Microsoft YaHei"</span>, <span class="string">"微软雅黑"</span>, <span class="string">"Wenquanyi Micro Hei"</span>, <span class="string">"WenQuanYi Zen Hei"</span>, <span class="string">"ST Heiti"</span>, SimHei, <span class="string">"WenQuanYi Zen Hei Sharp"</span>, sans-serif</span><br><span class="line"><span class="variable">$font</span>-family-monospace = <span class="string">"Fira Code"</span>, <span class="string">"更纱黑体 UI SC"</span>, consolas, Menlo, <span class="string">"Segoe UI Emoji"</span>, monospace</span><br></pre>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </figure>
+                                        </p>
+                                        <p>然后<code>hexo g</code>生成……居然搞定了！哈哈😄~生成的内容就是我想要的！</p>
+                                        <p>所以方法就是这样，不要管<code>_config.yml</code>和<code>base.styl</code>里的东西，直接在<code>custom.styl</code>里重写相应的变量就行了~</p>
+                                        <p>如果本文对你有帮助，欢迎在下方打赏我哦！谢谢😁~</p>
+                                    </div>
+                                    <div>
+                                        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                                            <div></div>
+                                            <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                                                <span>打赏</span>
+                                            </button>
+                                            <div id="QR" style="display: none;">
+                                                <div id="wechat" style="display: inline-block">
+                                                    <img id="wechat_qr" src="/images/wechat.png" alt="lx熊猫桑 微信支付">
+                                                    <p>微信支付</p>
+                                                </div>
+                                                <div id="alipay" style="display: inline-block">
+                                                    <img id="alipay_qr" src="/images/alipay.jpg" alt="lx熊猫桑 支付宝">
+                                                    <p>支付宝</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ul class="post-copyright">
+                                            <li class="post-copyright-author">
+                                                <strong>本文作者： </strong>lx熊猫桑</li>
+                                            <li class="post-copyright-link">
+                                                <strong>本文链接：</strong>
+                                                <a href="https://marsgt.github.io/2018/12/12/在Hexo-nexT主题上添加多个字体/" title="在Hexo nexT主题上添加多个字体">https://marsgt.github.io/2018/12/12/在Hexo-nexT主题上添加多个字体/</a>
+                                            </li>
+                                            <li class="post-copyright-license">
+                                                <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
+                                        </ul>
+                                    </div>
+                                    <footer class="post-footer">
+                                        <div class="post-tags">
+                                            <a href="/tags/随手记/" rel="tag"># 随手记</a>
+                                            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+                                            <a href="/tags/Yaml/" rel="tag"># Yaml</a>
+                                            <a href="/tags/Stylus/" rel="tag"># Stylus</a>
+                                        </div>
+                                        <div class="post-nav">
+                                            <div class="post-nav-next post-nav-item">
+                                                <a href="/2018/11/06/Hello-World/" rel="next" title="Hello, World.">
+                                                    <i class="fa fa-chevron-left"></i> Hello, World. </a>
+                                            </div>
+                                            <span class="post-nav-divider"></span>
+                                            <div class="post-nav-prev post-nav-item">
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+                <aside id="sidebar" class="sidebar">
+                    <div class="sidebar-inner">
+                        <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+                            <div class="site-overview">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lx熊猫桑">
+                                    <p class="site-author-name" itemprop="name">lx熊猫桑</p>
+                                    <p class="site-description motion-element" itemprop="description"></p>
+                                </div>
+                                <nav class="site-state motion-element">
+                                    <div class="site-state-item site-state-posts">
+                                        <a href="/archives">
+                                            <span class="site-state-item-count">11</span>
+                                            <span class="site-state-item-name">日志</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-categories">
+                                        <a href="/categories/index.html">
+                                            <span class="site-state-item-count">7</span>
+                                            <span class="site-state-item-name">分类</span>
+                                        </a>
+                                    </div>
+                                    <div class="site-state-item site-state-tags">
+                                        <a href="/tags/index.html">
+                                            <span class="site-state-item-count">24</span>
+                                            <span class="site-state-item-name">标签</span>
+                                        </a>
+                                    </div>
+                                </nav>
+                                <div class="links-of-author motion-element">
+                                    <span class="links-of-author-item">
+                                        <a href="https://github.com/MarsGT" title="GitHub &rarr; https://github.com/MarsGT" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="mailto:marsgt@qq.com" title="E-Mail &rarr; mailto:marsgt@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                                    </span>
+                                    <span class="links-of-author-item">
+                                        <a href="https://segmentfault.com/u/marsgt" title="SegmentFault &rarr; https://segmentfault.com/u/marsgt" rel="noopener" target="_blank"><i class="fa fa-fw fa-bolt"></i>SegmentFault</a>
+                                    </span>
+                                </div>
+                                <div class="cc-license motion-element" itemprop="license">
+                                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer id="footer" class="footer">
+            <div class="footer-inner">
+                <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+                    <span class="with-love" id="animate">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <span class="author" itemprop="copyrightHolder">lx熊猫桑</span>
+                </div>
+                <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+                <span class="post-meta-divider">|</span>
+                <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a></div>
+                <div class="busuanzi-count">
+                    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                    <span class="site-uv" title="总访客量">
+                        <i class="fa fa-user"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+                    </span>
+                    <span class="site-pv" title="总访问量">
+                        <i class="fa fa-eye"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+                    </span>
+                </div>
+            </div>
+        </footer>
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+            window.Promise = null;
+        }
+    </script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+    <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+</body>
+
+</html>
