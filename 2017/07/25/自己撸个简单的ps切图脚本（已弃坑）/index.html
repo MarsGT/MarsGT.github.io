@@ -280,19 +280,19 @@
                                 <nav class="site-state motion-element">
                                     <div class="site-state-item site-state-posts">
                                         <a href="/archives">
-                                            <span class="site-state-item-count">11</span>
+                                            <span class="site-state-item-count">12</span>
                                             <span class="site-state-item-name">日志</span>
                                         </a>
                                     </div>
                                     <div class="site-state-item site-state-categories">
                                         <a href="/categories/index.html">
-                                            <span class="site-state-item-count">7</span>
+                                            <span class="site-state-item-count">8</span>
                                             <span class="site-state-item-name">分类</span>
                                         </a>
                                     </div>
                                     <div class="site-state-item site-state-tags">
                                         <a href="/tags/index.html">
-                                            <span class="site-state-item-count">24</span>
+                                            <span class="site-state-item-count">26</span>
                                             <span class="site-state-item-name">标签</span>
                                         </a>
                                     </div>
@@ -311,6 +311,30 @@
                                 <div class="cc-license motion-element" itemprop="license">
                                     <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
                                 </div>
+                                <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+                                <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+                                <script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+                                <script>
+                                    var gitalk = new Gitalk({
+                                        clientID: 'f9476f25efdc8e2acc82',
+                                        clientSecret: '7f41fcdff63ca48d96b9feb5b00186ece23e8a7f',
+                                        repo: 'https://github.com/MarsGT/marsgt.github.io',
+                                        owner: 'marsgt@qq.com',
+                                        admin: 'marsgt@qq.com',
+                                        id: md5(location.pathname),
+                                        distractionFreeMode: 'true',
+                                        pagerDirection: 'first'
+                                    });
+                                    var div = document.createElement('div');
+                                    div.setAttribute("id", "gitalk_comments");
+                                    div.setAttribute("class", "post-nav");
+                                    var bro = document.getElementById('posts').getElementsByTagName('article');
+                                    bro = bro[0].getElementsByClassName('post-block');
+                                    bro = bro[0].getElementsByTagName('footer');
+                                    bro = bro[0];
+                                    bro.appendChild(div);
+                                    gitalk.render('gitalk_comments');
+                                </script>
                             </div>
                         </section>
                     </div>
@@ -319,7 +343,7 @@
         </main>
         <footer id="footer" class="footer">
             <div class="footer-inner">
-                <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+                <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
                     <span class="with-love" id="animate">
                         <i class="fa fa-user"></i>
                     </span>

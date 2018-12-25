@@ -59,7 +59,7 @@
         };
     </script>
     <meta name="description" content="一开始用 Brackets 的时候，看了很多推荐插件的文章，里边的插件大抵都差不多，千篇一律，毫无新意。后来偶然碰到了这个网站：Brackets Extensions （里边是各种插件的排行榜，点开之后还有原版介绍，感兴趣的可以挨个试试）后来，我就疯狂的试用了一堆插件……">
-    <meta name="keywords" content="brackets,编辑器,插件">
+    <meta name="keywords" content="编辑器,brackets,插件">
     <meta property="og:type" content="article">
     <meta property="og:title" content="brackets插件推荐">
     <meta property="og:url" content="https://marsgt.github.io/2016/01/10/brackets插件推荐/index.html">
@@ -245,8 +245,8 @@
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-tags">
-                                            <a href="/tags/brackets/" rel="tag"># brackets</a>
                                             <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
+                                            <a href="/tags/brackets/" rel="tag"># brackets</a>
                                             <a href="/tags/插件/" rel="tag"># 插件</a>
                                         </div>
                                         <div class="post-nav">
@@ -283,19 +283,19 @@
                                 <nav class="site-state motion-element">
                                     <div class="site-state-item site-state-posts">
                                         <a href="/archives">
-                                            <span class="site-state-item-count">11</span>
+                                            <span class="site-state-item-count">12</span>
                                             <span class="site-state-item-name">日志</span>
                                         </a>
                                     </div>
                                     <div class="site-state-item site-state-categories">
                                         <a href="/categories/index.html">
-                                            <span class="site-state-item-count">7</span>
+                                            <span class="site-state-item-count">8</span>
                                             <span class="site-state-item-name">分类</span>
                                         </a>
                                     </div>
                                     <div class="site-state-item site-state-tags">
                                         <a href="/tags/index.html">
-                                            <span class="site-state-item-count">24</span>
+                                            <span class="site-state-item-count">26</span>
                                             <span class="site-state-item-name">标签</span>
                                         </a>
                                     </div>
@@ -314,6 +314,30 @@
                                 <div class="cc-license motion-element" itemprop="license">
                                     <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
                                 </div>
+                                <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+                                <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+                                <script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+                                <script>
+                                    var gitalk = new Gitalk({
+                                        clientID: 'f9476f25efdc8e2acc82',
+                                        clientSecret: '7f41fcdff63ca48d96b9feb5b00186ece23e8a7f',
+                                        repo: 'https://github.com/MarsGT/marsgt.github.io',
+                                        owner: 'marsgt@qq.com',
+                                        admin: 'marsgt@qq.com',
+                                        id: md5(location.pathname),
+                                        distractionFreeMode: 'true',
+                                        pagerDirection: 'first'
+                                    });
+                                    var div = document.createElement('div');
+                                    div.setAttribute("id", "gitalk_comments");
+                                    div.setAttribute("class", "post-nav");
+                                    var bro = document.getElementById('posts').getElementsByTagName('article');
+                                    bro = bro[0].getElementsByClassName('post-block');
+                                    bro = bro[0].getElementsByTagName('footer');
+                                    bro = bro[0];
+                                    bro.appendChild(div);
+                                    gitalk.render('gitalk_comments');
+                                </script>
                             </div>
                         </section>
                     </div>
@@ -322,7 +346,7 @@
         </main>
         <footer id="footer" class="footer">
             <div class="footer-inner">
-                <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+                <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
                     <span class="with-love" id="animate">
                         <i class="fa fa-user"></i>
                     </span>

@@ -58,25 +58,28 @@
             }
         };
     </script>
-    <meta name="description" content="Hello world, Hexo. 此站点正式启用。">
-    <meta name="keywords" content="HelloWorld">
+    <meta name="description" content="这两天在折腾一个小的推广页面，里边有个需求是提交表单和数据汇总，估了下压力应该不大，懒得再折腾MySQL服务了，就想试试SQLite。我后端主要是用PHP打配合，查了下文档，SQLite在PHP上主要有纯原生的SQLite扩展和数据库抽象层PDO(PHP数据对象)两种调用方式。由于之前写MySQL的时候接触过PDO，所以这次也优先选择了这种方式">
+    <meta name="keywords" content="PHP,SQLite,数据库">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Hello, World.">
-    <meta property="og:url" content="https://marsgt.github.io/2018/11/06/Hello-World/index.html">
+    <meta property="og:title" content="PHP上的SQLite初体验">
+    <meta property="og:url" content="https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/index.html">
     <meta property="og:site_name" content="lx熊猫桑的自留地">
-    <meta property="og:description" content="Hello world, Hexo. 此站点正式启用。">
+    <meta property="og:description" content="这两天在折腾一个小的推广页面，里边有个需求是提交表单和数据汇总，估了下压力应该不大，懒得再折腾MySQL服务了，就想试试SQLite。我后端主要是用PHP打配合，查了下文档，SQLite在PHP上主要有纯原生的SQLite扩展和数据库抽象层PDO(PHP数据对象)两种调用方式。由于之前写MySQL的时候接触过PDO，所以这次也优先选择了这种方式">
     <meta property="og:locale" content="zh-CN">
-    <meta property="og:updated_time" content="2018-12-11T03:24:43.846Z">
+    <meta property="og:image" content="https://marsgt.github.io/images/1005972504-5971f5422fd38.png">
+    <meta property="og:image" content="https://marsgt.github.io/images/1005972504-5971f5422fd39.png">
+    <meta property="og:updated_time" content="2018-12-25T14:48:57.050Z">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Hello, World.">
-    <meta name="twitter:description" content="Hello world, Hexo. 此站点正式启用。">
-    <link rel="canonical" href="https://marsgt.github.io/2018/11/06/Hello-World/">
+    <meta name="twitter:title" content="PHP上的SQLite初体验">
+    <meta name="twitter:description" content="这两天在折腾一个小的推广页面，里边有个需求是提交表单和数据汇总，估了下压力应该不大，懒得再折腾MySQL服务了，就想试试SQLite。我后端主要是用PHP打配合，查了下文档，SQLite在PHP上主要有纯原生的SQLite扩展和数据库抽象层PDO(PHP数据对象)两种调用方式。由于之前写MySQL的时候接触过PDO，所以这次也优先选择了这种方式">
+    <meta name="twitter:image" content="https://marsgt.github.io/images/1005972504-5971f5422fd38.png">
+    <link rel="canonical" href="https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/">
     <script type="text/javascript" id="page.configurations">
         CONFIG.page = {
             sidebar: "",
         };
     </script>
-    <title>Hello, World. | lx熊猫桑的自留地</title>
+    <title>PHP上的SQLite初体验 | lx熊猫桑的自留地</title>
     <noscript>
         <style> .use-motion .motion-element,
         .use-motion .brand,
@@ -154,7 +157,7 @@
                         <div id="posts" class="posts-expand">
                             <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
-                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/11/06/Hello-World/">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/">
                                     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="lx熊猫桑">
                                         <meta itemprop="description" content="">
@@ -164,14 +167,14 @@
                                         <meta itemprop="name" content="lx熊猫桑的自留地">
                                     </span>
                                     <header class="post-header">
-                                        <h1 class="post-title" itemprop="name headline">Hello, World. </h1>
+                                        <h1 class="post-title" itemprop="name headline">PHP上的SQLite初体验 </h1>
                                         <div class="post-meta">
                                             <span class="post-time">
                                                 <span class="post-meta-item-icon">
                                                     <i class="fa fa-calendar-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">发表于</span>
-                                                <time title="创建时间：2018-11-06 12:13:12" itemprop="dateCreated datePublished" datetime="2018-11-06T12:13:12+08:00">2018-11-06</time>
+                                                <time title="创建时间：2018-12-20 21:32:03" itemprop="dateCreated datePublished" datetime="2018-12-20T21:32:03+08:00">2018-12-20</time>
                                             </span>
                                             <span class="post-category">
                                                 <span class="post-meta-divider">|</span>
@@ -179,13 +182,64 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/随手记/" itemprop="url" rel="index"><span itemprop="name">随手记</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/随手记/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
                                             </span>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
-                                        <p>Hello world, Hexo.</p>
-                                        <p>此站点正式启用。</p>
+                                        <p>这两天在折腾一个小的推广页面，里边有个需求是提交表单和数据汇总，估了下压力应该不大，懒得再折腾MySQL服务了，就想试试SQLite。我后端主要是用PHP打配合，查了下文档，SQLite在PHP上主要有纯原生的SQLite扩展和数据库抽象层PDO(PHP数据对象)两种调用方式。由于之前写MySQL的时候接触过PDO，所以这次也优先选择了这种方式 <a id="more"></a>（主要是换个DSN就行了，可以节省一些学习成本😜）。<br>数据库还需要一个图形界面来打配合（需要展示数据的场景，我个人认为GUI会比CLI有优势；当然如果换成命令行也行），MySQL的时候有个现成的NaviCat for MySQL，但并不通用；所以我就上网去搜有什么软件可以用。最先映入眼帘的是SQLiteStudio，开源、绿色（Portable版本）、多平台，搜到的讨论也很多，就去下载下来试了下。喏：<br><img src="/images/1005972504-5971f5422fd38.png" alt="SQLiteStudio"><br>第一感觉就是：丑！丑爆了……不过丑可能是Qt的通病吧，暂且按下不表。但我选的语言配置是中文诶，连菜单都没覆盖到是什么鬼😤……好吧抛开这些不谈，软件基本能用，就先开工吧。</p>
+                                        <hr>
+                                        <p>既然有了工具辅助，那么就可以开始建库了。此处建议先行补一下SQLite的基础知识，我是直接看的菜鸟教程……权威倒不敢说，贵在简单。SQLite大概是最迷你的关系数据库系统了，小就小在没有很多大型数据库的各种高级功能，自然也可以做到相对轻量和快速。SQLite的类型系统不像MySQL那样默认支持SQL的所有数据类型，它使用一种类似解释型语言的动态类型系统，默认类型(即<code>Storage Class</code>，存储类型)只有<code>NULL</code>、<code>INTEGER</code>(整型)、<code>REAL</code>(浮点型)、<code>TEXT</code>(字符串)和<code>BLOB</code>(二进制)这几种；而在核心类型以外，还存在一种被称为类型关联(<code>Type Affinity</code>)的概念(菜鸟将此处译做“亲和类型”)，即将多个类型映射成几个近似的基本类型，以确保SQLite可以支持更多的类型。在具体实现上，相关的映射关系：</p>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:center"><strong>来自语句中的类型</strong></th>
+                                                    <th style="text-align:center"><strong>最终关联类型</strong></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align:center">INT<br>INTEGER<br>TINYINT<br>SMALLINT<br>MEDIUMINT<br>BIGINT<br>UNSIGNED BIG INT<br>INT2<br>INT8</td>
+                                                    <td style="text-align:center">INTEGER</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center">CHARACTER(20)<br>VARCHAR(255)<br>VARYING CHARACTER(255)<br>NCHAR(55)<br>NATIVE CHARACTER(70)<br>NVARCHAR(100)<br>TEXT<br>CLOB</td>
+                                                    <td style="text-align:center">TEXT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center">BLOB<br>no datatype specified</td>
+                                                    <td style="text-align:center">NONE</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center">REAL<br>DOUBLE<br>DOUBLE PRECISION<br>FLOAT</td>
+                                                    <td style="text-align:center">REAL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center">NUMERIC<br>DECIMAL(10,5)<br>BOOLEAN<br>DATE<br>DATETIME</td>
+                                                    <td style="text-align:center">NUMERIC</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>可以看到也是5个类型。不过<code>Type Affinity</code>并不是必须的，最终的类型<br>另外还有两个类型，布尔型和日期/时间类型，前者会被转换为整型的0(FALSE)和1(TRUE)，后者则会被存储为TEXT、REAL或INTEGER。</p>
+                                        <hr>
+                                        <p>好，到这时，就可以到SQLiteStudio中实践一下了。打开软件，找到”Database-&gt;Add a database”，类型选SQLite3就可以，点绿加号选择文件的保存位置，下边的Name其实是在左侧列表中显示的名字，点确定就可以了。<br>一开始还没建表，所以一片灰什么都没……右击”Tables”选择”Create a table”，打开列表设计页，输入”Table name”之后就可以建表了。双击空白处打开字段编辑框，然后按一般套路去搞就行了。这里我需要提交的表单信息很少，所以除了必要的姓名手机号以外，就多建了个id(多说一句，勾上主键点开配置，勾上”Autoincrement”就是自增)。</p>
+                                        <p>插一句，在折腾的过程中又发现了一个GUI程序DB Browser for SQLite，体验比SQLiteStudio好太多：<br><img src="/images/1005972504-5971f5422fd39.png" alt="DB Browser for SQLite"><br>DB Browser很符合我心目中对数据库浏览器的要求：足够简单(就SQLite而言)、界面友好(全中文覆盖完全)、功能实际(有个细节，在新建字段时，默认只提供<code>INTEGER</code>、<code>TEXT</code>、<code>NONE</code>、<code>REAL</code>、<code>NUMERIC</code>这5种，起码在我看来这降低了复杂度，且符合原有设计)，所以建议换这个。</p>
+                                        <hr>
+                                        <p>表设计的差不多，就可以开搞PHP这边了。<br>数据库操作选择了用PDO来实现，因为之前写过……PDO的好处就是对于实现了驱动的数据库，换个DSN就行了，后边再用SQL指令、事务操作什么的都是通用的。所以有：<br>
+                                            <figure class="highlight php">
+                                                <table>
+                                                    <tr>
+                                                        <td class="gutter">
+                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+                                                        </td>
+                                                        <td class="code">
+                                                            <pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header(<span class="string">'content-type: text/html;charset=utf-8'</span>);</span><br><span class="line">header(<span class="string">'Cache-Control: no-cache'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $pdo = <span class="keyword">new</span> PDO(<span class="string">'sqlite:../data/test.db'</span>); <span class="comment">// 指向数据库文件</span></span><br><span class="line">    $pdo-&gt;exec(<span class="string">'set names utf8'</span>); <span class="comment">// 设置操作编码</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); <span class="comment">// 遇错误抛出异常</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOExceiption $e) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'ERROR!'</span>);</span><br><span class="line">&#125;</span><br></pre>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </figure>
+                                        </p>
+                                        <p>当然这只是完成了最基本的功能：连接，如果没有错误发生的话，它连报错也不会。</p>
                                     </div>
                                     <div>
                                         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -211,7 +265,7 @@
                                                 <strong>本文作者： </strong>lx熊猫桑</li>
                                             <li class="post-copyright-link">
                                                 <strong>本文链接：</strong>
-                                                <a href="https://marsgt.github.io/2018/11/06/Hello-World/" title="Hello, World.">https://marsgt.github.io/2018/11/06/Hello-World/</a>
+                                                <a href="https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/" title="PHP上的SQLite初体验">https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/</a>
                                             </li>
                                             <li class="post-copyright-license">
                                                 <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
@@ -219,17 +273,17 @@
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-tags">
-                                            <a href="/tags/HelloWorld/" rel="tag"># HelloWorld</a>
+                                            <a href="/tags/PHP/" rel="tag"># PHP</a>
+                                            <a href="/tags/SQLite/" rel="tag"># SQLite</a>
+                                            <a href="/tags/数据库/" rel="tag"># 数据库</a>
                                         </div>
                                         <div class="post-nav">
                                             <div class="post-nav-next post-nav-item">
-                                                <a href="/2018/08/31/关于iOS-11-x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录/" rel="next" title="关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录">
-                                                    <i class="fa fa-chevron-left"></i> 关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录 </a>
+                                                <a href="/2018/12/12/在Hexo-nexT主题上添加多个字体/" rel="next" title="在Hexo nexT主题上添加多个字体">
+                                                    <i class="fa fa-chevron-left"></i> 在Hexo nexT主题上添加多个字体 </a>
                                             </div>
                                             <span class="post-nav-divider"></span>
                                             <div class="post-nav-prev post-nav-item">
-                                                <a href="/2018/12/12/在Hexo-nexT主题上添加多个字体/" rel="prev" title="在Hexo nexT主题上添加多个字体"> 在Hexo nexT主题上添加多个字体 <i class="fa fa-chevron-right"></i>
-                                                </a>
                                             </div>
                                         </div>
                                     </footer>
