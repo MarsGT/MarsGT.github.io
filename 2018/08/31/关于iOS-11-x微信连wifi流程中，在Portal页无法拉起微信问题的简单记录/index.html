@@ -251,6 +251,8 @@
                             </article>
                         </div>
                     </div>
+                    <div id="gitalk-container">
+                    </div>
                 </div>
                 <div class="sidebar-toggle">
                     <div class="sidebar-toggle-line-wrap">
@@ -302,30 +304,6 @@
                                 <div class="cc-license motion-element" itemprop="license">
                                     <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
                                 </div>
-                                <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
-                                <script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
-                                <script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
-                                <script>
-                                    var gitalk = new Gitalk({
-                                        clientID: 'f9476f25efdc8e2acc82',
-                                        clientSecret: '7f41fcdff63ca48d96b9feb5b00186ece23e8a7f',
-                                        repo: 'marsgt.github.io',
-                                        owner: 'MarsGT',
-                                        admin: 'MarsGT',
-                                        id: md5(location.pathname),
-                                        distractionFreeMode: 'true',
-                                        pagerDirection: 'first'
-                                    });
-                                    var div = document.createElement('div');
-                                    div.setAttribute("id", "gitalk_comments");
-                                    div.setAttribute("class", "post-nav");
-                                    var bro = document.getElementById('posts').getElementsByTagName('article');
-                                    bro = bro[0].getElementsByClassName('post-block');
-                                    bro = bro[0].getElementsByTagName('footer');
-                                    bro = bro[0];
-                                    bro.appendChild(div);
-                                    gitalk.render('gitalk_comments');
-                                </script>
                             </div>
                         </section>
                     </div>
@@ -373,6 +351,22 @@
     <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
     <script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
     <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'f9476f25efdc8e2acc82',
+            clientSecret: '7f41fcdff63ca48d96b9feb5b00186ece23e8a7f',
+            repo: 'marsgt.github.io',
+            owner: 'MarsGT',
+            admin: ['MarsGT'],
+            id: md5(location.pathname),
+            distractionFreeMode: 'true',
+            pagerDirection: 'first'
+        })
+        gitalk.render('gitalk-container')
+    </script>
 </body>
 
 </html>
