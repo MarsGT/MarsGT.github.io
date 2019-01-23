@@ -180,35 +180,17 @@
                                                 <span class="post-meta-item-text">分类于</span>
                                                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
-                                            <div class="post-description">本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容</div>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
-                                        <ol>
-                                            <li>搭建单一Docker Registry请见《搭建私有Docker Registry以及推送镜像》，本文不再赘述</li>
-                                            <li>搭建带有Web管理功能的私有Docker Registry，分别需要Nginx（域名解析及反代，这里直接使用宿主机上编译好的）、Docker Registry及<a href="https://github.com/mkuchin/docker-registry-web" target="_blank" rel="noopener">Docker Registry Web</a>（提供Web管理界面）</li>
-                                            <li>为了配置方便，关掉了用户名密码功能，改为使用阿里云安全组直接限制80端口的入方向IP(外网为固定IP或者从某一固定IP代理)</li>
-                                            <li>
-                                                <p>使用Docker-Compose编排，配置文件：</p>
-                                                <figure class="highlight plain">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line">version: &apos;3&apos;</span><br><span class="line">services:</span><br><span class="line"> </span><br><span class="line">  registry-srv:</span><br><span class="line">    image: registry:2.4</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;9527:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/lib/docker/registry:/var/lib/registry</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry</span><br><span class="line">      - REGISTRY_STORAGE_DELETE_ENABLED=true</span><br><span class="line">    restart: always</span><br><span class="line"> </span><br><span class="line">  registry-web:</span><br><span class="line">    image: hyper/docker-registry-web</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;29527:8080&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/lib/docker/registry/web:/data</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_URL=http://172.19.0.1:9527/v2</span><br><span class="line">      - REGISTRY_NAME=registry.hahahaha.com</span><br><span class="line">      - REGISTRY_READONLY=false</span><br><span class="line">    restart: always</span><br><span class="line">    depends_on:</span><br><span class="line">      - registry-srv</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <p>registry-srv是私有Docker Registry服务，用的是简配（没上配置文件，只映射了部分环境变量和容器存储位置。把环境变量的“REGISTRY”前缀去掉，改成小写再把下划线改写成层级，就是YAML配置）；registry-web是Web界面服务，registry.hahahaha.com的DNS解析和阿里云安全组需要配置下，环境变量里“REGISTRYURL”是需要连接到的私有Docker Registry服务，这里的172.x.0.1的地址是和容器同网段的宿主机地址（不要用URL，访问不了；也不要用localhost，容器内的localhost不会指向宿主机）</p>
-                                            </li>
-                                            <li>然后需要配一下Nginx的反代。分别发到上文的9527和29527端口即可。</li>
-                                            <li>在Docker-Compose配置文件使用<code>docker-compose up -d</code>命令拉起服务，然后用<code>docker-compose logs -f</code>命令监控，直到出来“Server startup……”等内容时，<code>nginx -s reload</code>，然后访问registry.hahahaha.com就能看到管理界面了。</li>
-                                        </ol>
+                                        <blockquote>
+                                            <p>本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容</p>
+                                        </blockquote>
+                                        <!--noindex-->
+                                        <div class="post-button text-center">
+                                            <a class="btn" href="/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/#more" rel="contents"> 阅读全文 &raquo; </a>
+                                        </div>
+                                        <!--/noindex-->
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-eof"></div>
@@ -246,54 +228,17 @@
                                                 <span class="post-meta-item-text">分类于</span>
                                                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
-                                            <div class="post-description">本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容</div>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
-                                        <ol>
-                                            <li>首先需要生成连接用的用户名密码，用htpasswd。<br>安装直接<code>yum install -y httpd-tools</code>，然后<code>htpasswd -cB /home/.passwd hahahaha</code></li>
-                                            <li>或者上边也可以直接用registry镜像中的htpasswd代替，<br>使用<code>docker run --entrypoint htpasswd registry -Bbn \[用户名] \[密码] &gt;&gt; /etc/docker/auth/registry.htpasswd</code>来生成</li>
-                                            <li>用户名hahahaha，密码Haha123，服务搭在公网88.88.88.88主机上，端口19527</li>
-                                            <li>
-                                                <p>构建指令：</p>
-                                                <figure class="highlight bash">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line">docker run -d -p 9527:5000 --name registry --restart=always \\</span><br><span class="line">-v /etc/docker/registry:/var/lib/registry \\</span><br><span class="line">-v /etc/docker/auth:/auth \\</span><br><span class="line">-e REGISTRY_AUTH=htpasswd \\</span><br><span class="line">-e REGISTRY_AUTH_HTPASSWD_REALM=<span class="string">"Registry Realm"</span> \\</span><br><span class="line">-e REGISTRY_AUTH_HTPASSWD_PATH=/auth/passwd \\</span><br><span class="line">registry</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <p>详细教程可以参考：<a href="https://www.yanning.wang/archives/599.html" target="_blank" rel="noopener">Docker私有Registry搭建教程</a></p>
-                                            </li>
-                                            <li>
-                                                <p>/etc/docker/daemon.json文件中的内容建议改为：</p>
-                                                <figure class="highlight json">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>],</span><br><span class="line">  <span class="attr">"insecure-registries"</span>: [<span class="string">"88.88.88.88:9527"</span>]</span><br><span class="line">&#125;</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <p>PUSH镜像前，需新增镜像Tag，用<code>docker tag</code>命令将其转成<code>URL[:PORT]/REPO:TAG</code>这种格式，比如用：<br> <code>docker tag hahahaha/admin-test:develop 88.88.88.88:9527/hahahaha/admin-test:develop</code><br> 命令代表准备将 hahahaha/admin-test 镜像推到 88.88.88.88:9527</p>
-                                            </li>
-                                            <li>然后用<code>docker login</code>登录</li>
-                                            <li>接着用<code>docker push 88.88.88.88:9527/hahahaha/admin-test:develop</code>直接推就行</li>
-                                            <li>推完以后打开浏览器，输入<code>http://88.88.88.88:9527/v2/</code>登录一下，然后再打开<code>http://88.88.88.88:9527/v2/_catalog</code>就能看到刚推上去的镜像了。（Docker Registry HTTP API V2）</li>
-                                        </ol>
+                                        <blockquote>
+                                            <p>本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容</p>
+                                        </blockquote>
+                                        <!--noindex-->
+                                        <div class="post-button text-center">
+                                            <a class="btn" href="/2019/01/23/搭建私有Docker-Registry以及推送镜像/#more" rel="contents"> 阅读全文 &raquo; </a>
+                                        </div>
+                                        <!--/noindex-->
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-eof"></div>
@@ -331,174 +276,17 @@
                                                 <span class="post-meta-item-text">分类于</span>
                                                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
-                                            <div class="post-description">对部署Gitea的简单记录</div>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
-                                        <p>主机：CentOS<br>选型：用了DockerCE+Gitea</p>
                                         <blockquote>
-                                            <p>DockerCE和Docker的区别在，前者是最新版（免费的社区版，17.X+），后者是老版本（1.X+），另外还有个企业版是DockerEE</p>
+                                            <p>对部署Gitea的简单记录</p>
                                         </blockquote>
-                                        <p>Gitea是Gogs的一个开源分支版本，因为Gogs的Docker版本一直有点问题，所以就改用它了。</p>
-                                        <p>首先需要部署Docker。默认会带老版本的Docker，这里需要全部卸载：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo yum remove docker docker-common docker-selinux docker-engine</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>然后安装需要的软件包：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>添加安装源并加到本地缓存：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo yum-config-manager --add-repo https://download.docker.com/linux/docker-ce.repo</span><br><span class="line">sudo yum makecache fast</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>安装docker-ce并启动（加自启）<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo yum install docker-ce</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo chkconfig docker on</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>docker官方的镜像服务基本跑不动，所以需要把镜像源改成国内的加速地址。改地址一般有两种方式（详细可参阅<a href="https://www.docker-cn.com/registry-mirror" target="_blank" rel="noopener">Docker 中国官方镜像加速</a>），一是在pull镜像时，在前边加上加速地址的URL，比如要下载<code>gitea/gitea:latest</code>，就可以：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo docker pull registry.docker-cn.com/gitea/gitea:latest</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>或者还有种方式是更改<code>/etc/docker/daemon.json</code>文件，编辑为：<br>
-                                            <figure class="highlight json">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>]</span><br><span class="line">&#125;</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>这样就可以直接用：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo docker pull gitea/gitea:latest</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>来下载了。</p>
-                                        <p>这时等进度条走完，就已经下载好了Gitea的镜像，可以用：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo docker image ls</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>来查看系统里已有的镜像；这里会看到镜像会有个ImageID，这个下边有用。</p>
-                                        <p>新建一个目录，用于将容器内的存储映射到当前系统内：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo mkdir -p /var/lib/gitea</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>然后启动容器：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">docker run -d --name=gitea -p 10022:22 -p 10080:3000 -v /var/lib/gitea:/data 737fb3dad067</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>其中<code>-d</code>参数是后台运行，<code>-p</code>参数是将容器内端口映射到系统端口（系统:容器内），<code>-v</code>参数是将容器内存储位置映射到系统相应位置（系统:容器内），最后一行ID是ImageID，以实际查到的为准（不写标签主要是防止服务器慢时重复下载，这里也可以直接写镜像URL直接下载启动）</p>
-                                        <p>打开<code>192.168.1.10:10080</code>，就可以看到WebUI了。</p>
-                                        <p>配置文件位置：/var/lib/gitea/gitea/conf/app.ini（<a href="https://docs.gitea.io/zh-cn/config-cheat-sheet/" target="_blank" rel="noopener">配置项参考</a>）</p>
-                                        <p>配置后需要重启下容器：<br>
-                                            <figure class="highlight bash">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">sudo docker restart gitea</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <!--noindex-->
+                                        <div class="post-button text-center">
+                                            <a class="btn" href="/2019/01/23/内网服务器部署Gitea的简单记录/#more" rel="contents"> 阅读全文 &raquo; </a>
+                                        </div>
+                                        <!--/noindex-->
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-eof"></div>
