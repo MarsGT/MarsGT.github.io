@@ -58,25 +58,25 @@
             }
         };
     </script>
-    <meta name="description" content="一开始用 Brackets 的时候，看了很多推荐插件的文章，里边的插件大抵都差不多，千篇一律，毫无新意。后来偶然碰到了这个网站：Brackets Extensions （里边是各种插件的排行榜，点开之后还有原版介绍，感兴趣的可以挨个试试）后来，我就疯狂的试用了一堆插件……">
-    <meta name="keywords" content="brackets,编辑器,插件">
+    <meta name="description" content="本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容">
+    <meta name="keywords" content="随手记,部署,Docker">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="brackets插件推荐">
-    <meta property="og:url" content="https://marsgt.github.io/2016/01/10/brackets插件推荐/index.html">
+    <meta property="og:title" content="搭建带有Web管理功能的私有Docker Registry">
+    <meta property="og:url" content="https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/index.html">
     <meta property="og:site_name" content="lx熊猫桑的自留地">
-    <meta property="og:description" content="一开始用 Brackets 的时候，看了很多推荐插件的文章，里边的插件大抵都差不多，千篇一律，毫无新意。后来偶然碰到了这个网站：Brackets Extensions （里边是各种插件的排行榜，点开之后还有原版介绍，感兴趣的可以挨个试试）后来，我就疯狂的试用了一堆插件……">
+    <meta property="og:description" content="本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容">
     <meta property="og:locale" content="zh-CN">
-    <meta property="og:updated_time" content="2018-12-30T01:54:25.279Z">
+    <meta property="og:updated_time" content="2019-01-23T05:52:03.328Z">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="brackets插件推荐">
-    <meta name="twitter:description" content="一开始用 Brackets 的时候，看了很多推荐插件的文章，里边的插件大抵都差不多，千篇一律，毫无新意。后来偶然碰到了这个网站：Brackets Extensions （里边是各种插件的排行榜，点开之后还有原版介绍，感兴趣的可以挨个试试）后来，我就疯狂的试用了一堆插件……">
-    <link rel="canonical" href="https://marsgt.github.io/2016/01/10/brackets插件推荐/">
+    <meta name="twitter:title" content="搭建带有Web管理功能的私有Docker Registry">
+    <meta name="twitter:description" content="本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容">
+    <link rel="canonical" href="https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/">
     <script type="text/javascript" id="page.configurations">
         CONFIG.page = {
             sidebar: "",
         };
     </script>
-    <title>brackets插件推荐 | lx熊猫桑的自留地</title>
+    <title>搭建带有Web管理功能的私有Docker Registry | lx熊猫桑的自留地</title>
     <noscript>
         <style> .use-motion .motion-element,
         .use-motion .brand,
@@ -154,7 +154,7 @@
                         <div id="posts" class="posts-expand">
                             <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
-                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2016/01/10/brackets插件推荐/">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/">
                                     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="lx熊猫桑">
                                         <meta itemprop="description" content="">
@@ -164,14 +164,14 @@
                                         <meta itemprop="name" content="lx熊猫桑的自留地">
                                     </span>
                                     <header class="post-header">
-                                        <h1 class="post-title" itemprop="name headline">brackets插件推荐 </h1>
+                                        <h1 class="post-title" itemprop="name headline">搭建带有Web管理功能的私有Docker Registry </h1>
                                         <div class="post-meta">
                                             <span class="post-time">
                                                 <span class="post-meta-item-icon">
                                                     <i class="fa fa-calendar-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">发表于</span>
-                                                <time title="创建时间：2016-01-10 19:10:37" itemprop="dateCreated datePublished" datetime="2016-01-10T19:10:37+08:00">2016-01-10</time>
+                                                <time title="创建时间：2019-01-23 13:47:29" itemprop="dateCreated datePublished" datetime="2019-01-23T13:47:29+08:00">2019-01-23</time>
                                             </span>
                                             <span class="post-category">
                                                 <span class="post-meta-divider">|</span>
@@ -181,37 +181,35 @@
                                                 <span class="post-meta-item-text">分类于</span>
                                                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
+                                            <div class="post-description">本文记录了搭建简易的(无WebUI)私有Docker Registry服务以及推送镜像的相关内容</div>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
-                                        <p>一开始用 Brackets 的时候，看了很多推荐插件的文章，里边的插件大抵都差不多，千篇一律，毫无新意。后来偶然碰到了这个网站：<a href="http://brackets.dnbard.com/" target="_blank" rel="noopener">Brackets Extensions</a> （里边是各种插件的排行榜，点开之后还有原版介绍，感兴趣的可以挨个试试）后来，我就疯狂的试用了一堆插件…… <a id="more"></a>
-                                        </p>
-                                        <p>嗯，下边还是书归正传，还是说一说我自己用的顺手的几个插件吧：</p>
                                         <ol>
-                                            <li>Emmet<br>也叫/曾经被称为 ZenCoding ，万年不变的“榜首/必装”插件。不过如果平常没有这个习惯的，也可以试试换用各种 snipper 插件，这些插件的优点就是本身的可定制程度要比 Emmet 高一些（Emmet 反正我自己的程度也就是改改 lang 的设定啊什么的，还得去翻代码。。）</li>
-                                            <li>Tabs - Custom Working<br>从前边网站上知道的一个插件。没办法，个人对浏览器上的多标签页简直是爱不释手，所以发现了这个插件以后简直是欲罢不能啊~更何况它标签上的 icon 也是挺好看的。。。</li>
-                                            <li>Extensions Rating<br>插件管理器的“美化”插件，会增加一些 GitHub 上的头像啊 stars 数啊 forks 数啊什么的东西，方便选择。看各人喜好装吧。</li>
-                                            <li>Brackets File Tree Exclude<br>左边文件列表的排除插件，可以指定一些比如像是 git 啊 node_modules 啊之类的不想让它出现的东东。</li>
-                                            <li>Js-Beautify &amp; JS CSS Minifier<br>前者负责美化、后者负责压缩，都是我觉得比较好用的。</li>
+                                            <li>搭建单一Docker Registry请见《搭建私有Docker Registry以及推送镜像》，本文不再赘述</li>
+                                            <li>搭建带有Web管理功能的私有Docker Registry，分别需要Nginx（域名解析及反代，这里直接使用宿主机上编译好的）、Docker Registry及<a href="https://github.com/mkuchin/docker-registry-web" target="_blank" rel="noopener">Docker Registry Web</a>（提供Web管理界面）</li>
+                                            <li>为了配置方便，关掉了用户名密码功能，改为使用阿里云安全组直接限制80端口的入方向IP(外网为固定IP或者从某一固定IP代理)</li>
                                             <li>
-                                                <p>JSHint &amp; JSHint Configurator<br>文档检查插件，我觉得比自带的 JSLint 要好用。后边那个是在文档中自定义语法规则的。在这里多说一句，屏蔽自带的 JSLint 是在 brackets.json 里边加上</p>
-                                                <figure class="highlight javascript">
+                                                <p>使用Docker-Compose编排，配置文件：</p>
+                                                <figure class="highlight plain">
                                                     <table>
                                                         <tr>
                                                             <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
                                                             </td>
                                                             <td class="code">
-                                                                <pre><span class="line"><span class="string">"language"</span>: &#123;</span><br><span class="line">    <span class="string">"javascript"</span>: &#123;</span><br><span class="line">        <span class="string">"linting.prefer"</span>: [<span class="string">"JSHint"</span>],</span><br><span class="line">        <span class="string">"linting.usePreferredOnly"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre>
+                                                                <pre><span class="line">version: &apos;3&apos;</span><br><span class="line">services:</span><br><span class="line"> </span><br><span class="line">  registry-srv:</span><br><span class="line">    image: registry:2.4</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;9527:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/lib/docker/registry:/var/lib/registry</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry</span><br><span class="line">      - REGISTRY_STORAGE_DELETE_ENABLED=true</span><br><span class="line">    restart: always</span><br><span class="line"> </span><br><span class="line">  registry-web:</span><br><span class="line">    image: hyper/docker-registry-web</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;29527:8080&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/lib/docker/registry/web:/data</span><br><span class="line">    environment:</span><br><span class="line">      - REGISTRY_URL=http://172.19.0.1:9527/v2</span><br><span class="line">      - REGISTRY_NAME=registry.hahahaha.com</span><br><span class="line">      - REGISTRY_READONLY=false</span><br><span class="line">    restart: always</span><br><span class="line">    depends_on:</span><br><span class="line">      - registry-srv</span><br></pre>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </figure>
-                                                <p>这一句，然后保存重启 Brackets 就行了。</p>
                                             </li>
-                                            <li>Autoprefixer<br>PostCSS 的神器，专门用来给 CSS 加各种前缀的。</li>
+                                            <li>
+                                                <p>registry-srv是私有Docker Registry服务，用的是简配（没上配置文件，只映射了部分环境变量和容器存储位置。把环境变量的“REGISTRY”前缀去掉，改成小写再把下划线改写成层级，就是YAML配置）；registry-web是Web界面服务，registry.hahahaha.com的DNS解析和阿里云安全组需要配置下，环境变量里“REGISTRYURL”是需要连接到的私有Docker Registry服务，这里的172.x.0.1的地址是和容器同网段的宿主机地址（不要用URL，访问不了；也不要用localhost，容器内的localhost不会指向宿主机）</p>
+                                            </li>
+                                            <li>然后需要配一下Nginx的反代。分别发到上文的9527和29527端口即可。</li>
+                                            <li>在Docker-Compose配置文件使用<code>docker-compose up -d</code>命令拉起服务，然后用<code>docker-compose logs -f</code>命令监控，直到出来“Server startup……”等内容时，<code>nginx -s reload</code>，然后访问registry.hahahaha.com就能看到管理界面了。</li>
                                         </ol>
-                                        <p>反正常用的就是这些了，还有哪些好用的欢迎推荐~~</p>
                                     </div>
                                     <div>
                                         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -237,7 +235,7 @@
                                                 <strong>本文作者： </strong>lx熊猫桑</li>
                                             <li class="post-copyright-link">
                                                 <strong>本文链接：</strong>
-                                                <a href="https://marsgt.github.io/2016/01/10/brackets插件推荐/" title="brackets插件推荐">https://marsgt.github.io/2016/01/10/brackets插件推荐/</a>
+                                                <a href="https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/" title="搭建带有Web管理功能的私有Docker Registry">https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/</a>
                                             </li>
                                             <li class="post-copyright-license">
                                                 <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
@@ -245,17 +243,17 @@
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-tags">
-                                            <a href="/tags/brackets/" rel="tag"># brackets</a>
-                                            <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
-                                            <a href="/tags/插件/" rel="tag"># 插件</a>
+                                            <a href="/tags/随手记/" rel="tag"># 随手记</a>
+                                            <a href="/tags/部署/" rel="tag"># 部署</a>
+                                            <a href="/tags/Docker/" rel="tag"># Docker</a>
                                         </div>
                                         <div class="post-nav">
                                             <div class="post-nav-next post-nav-item">
+                                                <a href="/2019/01/23/搭建私有Docker-Registry以及推送镜像/" rel="next" title="搭建私有Docker Registry以及推送镜像">
+                                                    <i class="fa fa-chevron-left"></i> 搭建私有Docker Registry以及推送镜像 </a>
                                             </div>
                                             <span class="post-nav-divider"></span>
                                             <div class="post-nav-prev post-nav-item">
-                                                <a href="/2016/08/31/前端图片直传OSS试验/" rel="prev" title="前端图片直传OSS试验"> 前端图片直传OSS试验 <i class="fa fa-chevron-right"></i>
-                                                </a>
                                             </div>
                                         </div>
                                     </footer>
