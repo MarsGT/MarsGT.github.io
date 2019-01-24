@@ -66,7 +66,7 @@
     <meta property="og:site_name" content="lx熊猫桑的自留地">
     <meta property="og:description" content="本文节选自优达学城Git 提交信息样式指南，部分内容略有修改。">
     <meta property="og:locale" content="zh-CN">
-    <meta property="og:updated_time" content="2019-01-24T02:51:21.017Z">
+    <meta property="og:updated_time" content="2019-01-24T03:00:12.124Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git提交信息样式指南">
     <meta name="twitter:description" content="本文节选自优达学城Git 提交信息样式指南，部分内容略有修改。">
@@ -191,10 +191,20 @@
                                         <hr>
                                         <h3 id="提交信息"><a href="#提交信息" class="headerlink" title="提交信息"></a>提交信息</h3>
                                         <h4 id="信息结构"><a href="#信息结构" class="headerlink" title="信息结构"></a>信息结构</h4>
-                                        <p>提交信息由三个不同的部分构成，这些部分均由空行分隔：标题、可选的消息体和可选的注释。其布局大致如此：</p>
-                                        <blockquote>
-                                            <p>类型：主题<br>消息正文<br>注释</p>
-                                        </blockquote>
+                                        <p>提交信息由三个不同的部分构成，这些部分均由空行分隔：标题、可选的消息体和可选的注释。其布局大致如此：<br>
+                                            <figure class="highlight plain">
+                                                <table>
+                                                    <tr>
+                                                        <td class="gutter">
+                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
+                                                        </td>
+                                                        <td class="code">
+                                                            <pre><span class="line">类型：主题</span><br><span class="line">消息正文</span><br><span class="line">注释</span><br></pre>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </figure>
+                                        </p>
                                         <p>标题由消息类型和主题构成。</p>
                                         <h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4>
                                         <p>类型位于在标题内，有以下几种可能：</p>
@@ -214,13 +224,18 @@
                                         <h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4>
                                         <p>注释是可选内容，用于引用 issue 的 ID 。</p>
                                         <h4 id="提交信息示例"><a href="#提交信息示例" class="headerlink" title="提交信息示例"></a>提交信息示例</h4>
-                                        <blockquote>
-                                            <p>feature: 总结变动的内容，保持在50个字符内</p>
-                                            <p>​如有需要，使用更详细的说明性文字，将其大概控制在72个字符。在部分语境中，第一行被视为提交信息的主题，余下的文本被视为主体。分隔总结与主体的空行十分重要（除非你完全忽略主体）；否则<code>log</code>、<code>shortlog</code>和<code>rebase</code>等多个工具容易发生混淆。</p>
-                                            <p>解释该提交信息所解决的问题，说明你进行该变动的原因，而不是方法（代码本身可以解释方法）。<br>该变动是否存在副作用或其他直觉性后果？在这里进行解释。</p>
-                                            <p>后续段落前需加空行。<br>可以列出要点<br>- 通常情况下，要点会使用空格加上连字符或星号，中间用空行分隔，但该规定存在差别。</p>
-                                            <p>如果你使用问题追踪，将其引用放在末尾，例如：<br>解决了问题：#123<br>另见：#456, #789</p>
-                                        </blockquote>
+                                        <figure class="highlight plain">
+                                            <table>
+                                                <tr>
+                                                    <td class="gutter">
+                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+                                                    </td>
+                                                    <td class="code">
+                                                        <pre><span class="line">feature: 总结变动的内容，保持在50个字符内</span><br><span class="line"></span><br><span class="line">如有需要，使用更详细的说明性文字，将其大概控制在72个字符。在部分语境中，第一行被视为提交信息的主题，余下的文本被视为主体。分隔总结与主体的空行十分重要（除非你完全忽略主体）；否则`log`、`shortlog`和`rebase`等多个工具容易发生混淆。</span><br><span class="line">解释该提交信息所解决的问题，说明你进行该变动的原因，而不是方法（代码本身可以解释方法）。</span><br><span class="line">该变动是否存在副作用或其他直觉性后果？在这里进行解释。</span><br><span class="line"></span><br><span class="line">后续段落前需加空行。</span><br><span class="line">可以列出要点</span><br><span class="line">- 通常情况下，要点会使用空格加上连字符或星号，中间用空行分隔，但该规定存在差别。</span><br><span class="line"></span><br><span class="line">如果你使用问题追踪，将其引用放在末尾，例如：</span><br><span class="line">解决了问题：#123</span><br><span class="line">另见：#456, #789</span><br></pre>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </figure>
                                     </div>
                                     <div>
                                         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
