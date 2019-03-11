@@ -60,7 +60,7 @@
         };
     </script>
     <meta name="description" content="估计踩过微信视频这个坑的，内心都想说上一句：      “神经病啊！”  而微信也终于出了个《H5同层播放器接入规范》，算是正常点了……">
-    <meta name="keywords" content="JavaScript,微信,视频,HTML">
+    <meta name="keywords" content="微信,JavaScript,HTML,视频">
     <meta property="og:type" content="article">
     <meta property="og:title" content="神经病啊！--微信同层播放器接(踩)入(坑)总结">
     <meta property="og:url" content="https://marsgt.github.io/2017/06/14/神经病啊！-微信同层播放器接-踩-入-坑-总结/index.html">
@@ -289,10 +289,10 @@
                                     </div>
                                     <footer class="post-footer">
                                         <div class="post-tags">
-                                            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
                                             <a href="/tags/微信/" rel="tag"># 微信</a>
-                                            <a href="/tags/视频/" rel="tag"># 视频</a>
+                                            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
                                             <a href="/tags/HTML/" rel="tag"># HTML</a>
+                                            <a href="/tags/视频/" rel="tag"># 视频</a>
                                         </div>
                                         <div class="post-nav">
                                             <div class="post-nav-next post-nav-item">
@@ -444,6 +444,19 @@
             pagerDirection: 'first'
         })
         gitalk.render('gitalk-container')
+    </script>
+    <script>
+        (function() {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            } else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
     </script>
 </body>
 
