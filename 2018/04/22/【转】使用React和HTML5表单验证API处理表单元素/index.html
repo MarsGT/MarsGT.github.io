@@ -65,7 +65,7 @@
     <meta name="keywords" content="React">
     <meta property="og:type" content="article">
     <meta property="og:title" content="【转】使用React和HTML5表单验证API处理表单元素">
-    <meta property="og:url" content="https://marsgt.github.io/2018/07/26/【转】使用React和HTML5表单验证API处理表单元素/index.html">
+    <meta property="og:url" content="https://marsgt.github.io/2018/04/22/【转】使用React和HTML5表单验证API处理表单元素/index.html">
     <meta property="og:site_name" content="某熊猫桑·自留地">
     <meta property="og:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
@@ -76,14 +76,14 @@
     <meta property="og:image" content="https://images/pasted-2.png/">
     <meta property="og:image" content="https://images/pasted-3.png/">
     <meta property="og:image" content="https://images/pasted-4.png/">
-    <meta property="og:updated_time" content="2019-04-22T07:17:13.891Z">
+    <meta property="og:updated_time" content="2019-04-22T07:30:06.403Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【转】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:image" content="https://images/pasted-0.png/">
-    <link rel="canonical" href="https://marsgt.github.io/2018/07/26/【转】使用React和HTML5表单验证API处理表单元素/">
+    <link rel="canonical" href="https://marsgt.github.io/2018/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
     <script type="text/javascript" id="page.configurations">
         CONFIG.page = {
             sidebar: "",
@@ -171,7 +171,7 @@
                         <div id="posts" class="posts-expand">
                             <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
                                 <div class="post-block">
-                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/07/26/【转】使用React和HTML5表单验证API处理表单元素/">
+                                    <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
                                     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
                                         <meta itemprop="description" content>
@@ -188,7 +188,7 @@
                                                     <i class="fa fa-calendar-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">发表于</span>
-                                                <time title="创建时间：2018-07-26 12:00:00" itemprop="dateCreated datePublished" datetime="2018-07-26T12:00:00+08:00">2018-07-26</time>
+                                                <time title="创建时间：2018-04-22 15:29:00" itemprop="dateCreated datePublished" datetime="2018-04-22T15:29:00+08:00">2018-04-22</time>
                                             </span>
                                             <span class="post-category">
                                                 <span class="post-meta-divider">|</span>
@@ -236,7 +236,7 @@
                                                         <pre><span class="line">1</span><br></pre>
                                                     </td>
                                                     <td class="code">
-                                                        <pre><span class="line">&lt;Winterfell schema=&#123;loginSchema&#125; &gt;&lt;/Winterfell&gt;</span><br></pre>
+                                                        <pre><span class="line">&lt;Winterfell schema=&#123;loginSchema&#125; &gt;<span class="xml"><span class="tag">&lt;/<span class="name">Winterfell</span>&gt;</span></span></span><br></pre>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -264,7 +264,7 @@
                                                         <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre>
                                                     </td>
                                                     <td class="code">
-                                                        <pre><span class="line"><span class="keyword">import</span> Formsy <span class="keyword">from</span> <span class="string">"formsy-react"</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> MyInput <span class="keyword">from</span> <span class="string">"./MyInput"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  onValid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onInvalid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  submit( model ) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Formsy onValidSubmit=&#123;<span class="keyword">this</span>.submit&#125; onValid=&#123;<span class="keyword">this</span>.onValid&#125; onInvalid=&#123;<span class="keyword">this</span>.onInvalid&#125;&gt;</span><br><span class="line">        &lt;MyInput</span><br><span class="line">          name=<span class="string">"email"</span></span><br><span class="line">          validations=<span class="string">"isEmail"</span></span><br><span class="line">          validationError=<span class="string">"This is not a valid email"</span></span><br><span class="line">          required</span><br><span class="line">        &gt;&lt;/MyInput&gt;</span><br><span class="line">        &lt;button type=<span class="string">"submit"</span> disabled=&#123; !<span class="keyword">this</span>.state.valid &#125;&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Formsy&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
+                                                        <pre><span class="line"><span class="keyword">import</span> Formsy <span class="keyword">from</span> <span class="string">"formsy-react"</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> MyInput <span class="keyword">from</span> <span class="string">"./MyInput"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  onValid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onInvalid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  submit( model ) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Formsy onValidSubmit=&#123;<span class="keyword">this</span>.submit&#125; onValid=&#123;<span class="keyword">this</span>.onValid&#125; onInvalid=&#123;<span class="keyword">this</span>.onInvalid&#125;&gt;</span><br><span class="line">        &lt;MyInput</span><br><span class="line">          name=<span class="string">"email"</span></span><br><span class="line">          validations=<span class="string">"isEmail"</span></span><br><span class="line">          validationError=<span class="string">"This is not a valid email"</span></span><br><span class="line">          required</span><br><span class="line">        &gt;<span class="xml"><span class="tag">&lt;/<span class="name">MyInput</span>&gt;</span></span></span><br><span class="line">        &lt;button type=<span class="string">"submit"</span> disabled=&#123; !<span class="keyword">this</span>.state.valid &#125;&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Formsy&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -525,7 +525,7 @@
                                                 <strong>本文作者： </strong>作者: Dmitry Sheiko | 译：甄玉磊</li>
                                             <li class="post-copyright-link">
                                                 <strong>本文链接：</strong>
-                                                <a href="https://marsgt.github.io/2018/07/26/【转】使用React和HTML5表单验证API处理表单元素/" title="【转】使用React和HTML5表单验证API处理表单元素">https://marsgt.github.io/2018/07/26/【转】使用React和HTML5表单验证API处理表单元素/</a>
+                                                <a href="https://marsgt.github.io/2018/04/22/【转】使用React和HTML5表单验证API处理表单元素/" title="【转】使用React和HTML5表单验证API处理表单元素">https://marsgt.github.io/2018/04/22/【转】使用React和HTML5表单验证API处理表单元素/</a>
                                             </li>
                                             <li class="post-copyright-license">
                                                 <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议。转载请注明出处！</li>
@@ -537,12 +537,12 @@
                                         </div>
                                         <div class="post-nav">
                                             <div class="post-nav-next post-nav-item">
-                                                <a href="/2018/05/15/win10-vscode部署java开发环境/" rel="next" title="win10+vscode部署java开发环境">
-                                                    <i class="fa fa-chevron-left"></i> win10+vscode部署java开发环境 </a>
+                                                <a href="/2017/08/02/jQTips-·-动态添加元素的清爽写法/" rel="next" title="jQTips · 动态添加元素的清爽写法">
+                                                    <i class="fa fa-chevron-left"></i> jQTips · 动态添加元素的清爽写法 </a>
                                             </div>
                                             <span class="post-nav-divider"></span>
                                             <div class="post-nav-prev post-nav-item">
-                                                <a href="/2018/08/31/关于iOS-11-x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录/" rel="prev" title="关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录"> 关于iOS 11.x微信连wifi流程中，在Portal页无法拉起微信问题的简单记录 <i class="fa fa-chevron-right"></i>
+                                                <a href="/2018/05/15/win10-vscode部署java开发环境/" rel="prev" title="win10+vscode部署java开发环境"> win10+vscode部署java开发环境 <i class="fa fa-chevron-right"></i>
                                                 </a>
                                             </div>
                                         </div>
