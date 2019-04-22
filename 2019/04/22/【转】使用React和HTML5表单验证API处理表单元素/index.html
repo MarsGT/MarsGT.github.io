@@ -71,18 +71,18 @@
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素">
     <meta property="og:locale" content="zh-CN">
-    <meta property="og:image" content="https://images/pasted-0.png/">
-    <meta property="og:image" content="https://images/pasted-1.png/">
-    <meta property="og:image" content="https://images/pasted-2.png/">
-    <meta property="og:image" content="https://images/pasted-3.png/">
-    <meta property="og:image" content="https://images/pasted-4.png/">
-    <meta property="og:updated_time" content="2019-04-22T07:49:36.132Z">
+    <meta property="og:image" content="https://marsgt.github.io/image/pasted-0.png">
+    <meta property="og:image" content="https://marsgt.github.io/image/pasted-1.png">
+    <meta property="og:image" content="https://marsgt.github.io/image/pasted-2.png">
+    <meta property="og:image" content="https://marsgt.github.io/image/pasted-3.png">
+    <meta property="og:image" content="https://marsgt.github.io/image/pasted-4.png">
+    <meta property="og:updated_time" content="2019-04-22T08:08:09.139Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【转】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素">
-    <meta name="twitter:image" content="https://images/pasted-0.png/">
+    <meta name="twitter:image" content="https://marsgt.github.io/image/pasted-0.png">
     <link rel="canonical" href="https://marsgt.github.io/2019/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
     <script type="text/javascript" id="page.configurations">
         CONFIG.page = {
@@ -303,7 +303,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre>
                                         <p>这是一个简单的表单，期望的功能 —— <code>&lt;input&gt;</code> 元素有<code>required</code>的属性。因此，如果我们快速按下提交按钮，表单内容不会提交到服务器。相反我们会看到在输入框旁出现提示信息，提示 <code>value</code> 值没有满足给出的限制条件（不能为空）。</p>
-                                        <p><img src="\\images\pasted-0.png\" alt="input 元素不能为空"></p>
+                                        <p><img src="/image/pasted-0.png" alt="input 元素不能为空"></p>
                                         <p>现在我们给输入框增加约束条件</p>
                                         <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
@@ -328,7 +328,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
                                         <p>以上代码只是检查 input 框的输入事件，其校验状态 <code>patternMismatch</code> 的变化。当输入的值与定义的 <code>pattern</code> 不匹配时，就会出现错误提示信息。如果我们设置了其他的限制条件<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation" target="_blank" rel="noopener">[14]</a>，也会被我们所定义的事件处理函数所覆盖。</p>
-                                        <p><img src="\\images\pasted-1.png\" alt=""></p>
+                                        <p><img src="/image/pasted-1.png" alt=""></p>
                                         <p>你对这个工具提示不太满意？是的，它在不同的浏览器中表现形式是不一样的。让我们给表单元素增加novalidate属性，并且自定义错误提示：</p>
                                         <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">novalidate</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
@@ -344,7 +344,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
   answerError<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> answer<span class="token punctuation">.</span>validationMessage<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-                                        <p><img src="\\images\pasted-2.png\" alt=""></p>
+                                        <p><img src="/image/pasted-2.png" alt=""></p>
                                         <p>尽管这个介绍比较简短，你也能体会到技术背后的力量和灵活性。最重要的是，它是原生的表单验证。所以我们为什么要依赖繁多的自定义库。而不去使用原生的验证呢？</p>
                                         <h2 id="满足表单校验的-React-API"><a href="#满足表单校验的-React-API" class="headerlink" title="满足表单校验的 React API"></a>满足表单校验的 React API</h2>
                                         <p>react-html5-form 将 React（还可以选择Redux） 和 HTML5 表单校验 API 联系起来了。它提供 <code>From</code> 组件和 <code>InputGroup</code> 组件（类似于 Formsy 组件库中的 input，或者 AntDesign 组件库中的 <code>FormItem</code> ）。这样，<code>Form</code> 组件定义了表单及其作用区域。<code>InputGroup</code> 组件可以包含一个或多个输入框。我们简单地用这些组件包裹一个任意的表单内容（只是普通的 HTML 或 React 组件）。在用户事件上，我们可以请求表单验证，并根据有效的输入值，获得 <code>Form</code> 和 <code>InputGroup</code> 组件的更新状态。</p>
@@ -397,7 +397,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
                                             <li>inputGroup – 访问表单组件 API 的实例；</li>
                                         </ul>
                                         <p>渲染之后我们可以得到一个 email 类型的输入框。如果该值为空，或在提交时包含无效的电子邮件地址，则在输入框旁边显示相应的验证消息。</p>
-                                        <p><img src="\\images\pasted-3.png\" alt=""></p>
+                                        <p><img src="/image/pasted-3.png" alt=""></p>
                                         <p>还记得我们在使用原生表单校验 API 自定义错误提示信息时的焦头烂额吗？使用 InputGroup 这一情况将变得好转：</p>
                                         <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span>
     <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span> <span class="token string">"email"</span> <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
@@ -460,7 +460,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
  <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span> <span class="token string">"app"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
                                         <p>当我们运行该应用程序时，就能在 store 中找到所有与表单相关的状态。</p>
-                                        <p><img src="\\images\pasted-4.png\" alt=""></p>
+                                        <p><img src="/image/pasted-4.png" alt=""></p>
                                         <p>点击这里<a href="https://github.com/dsheiko/react-html5-form/blob/master/demo/bootstrap-redux/src/index.jsx" target="_blank" rel="noopener">[17]</a>查看上述 demo 的源代码。</p>
                                         <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
                                         <p>React 没有内置的表单验证逻辑，但是我们可以使用第三方解决方案。这种方法可能是开发包、表单生成器，还可能是 HOC 或者是包含校验逻辑的任意表单容器组件。我个人倾向于使用容器组件，该组件依赖于 HTML 内置表单验证 API ，并在表单和表单域的范围中显示有效性状态。</p>
