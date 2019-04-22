@@ -61,7 +61,10 @@
     </script>
     <meta name="description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
-     译文地址：【译】使用React和HTML5表单验证API处理表单元素">
+     译文地址：【译】使用React和HTML5表单验证API处理表单元素
+ 
+ 
+     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
     <meta name="keywords" content="React">
     <meta property="og:type" content="article">
     <meta property="og:title" content="【转】使用React和HTML5表单验证API处理表单元素">
@@ -69,19 +72,25 @@
     <meta property="og:site_name" content="某熊猫桑·自留地">
     <meta property="og:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
-     译文地址：【译】使用React和HTML5表单验证API处理表单元素">
+     译文地址：【译】使用React和HTML5表单验证API处理表单元素
+ 
+ 
+     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-0.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-1.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-2.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-3.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-4.png">
-    <meta property="og:updated_time" content="2019-04-22T08:20:36.613Z">
+    <meta property="og:updated_time" content="2019-04-22T08:41:24.712Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【转】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
-     译文地址：【译】使用React和HTML5表单验证API处理表单元素">
+     译文地址：【译】使用React和HTML5表单验证API处理表单元素
+ 
+ 
+     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
     <meta name="twitter:image" content="https://marsgt.github.io/images/pasted-0.png">
     <link rel="canonical" href="https://marsgt.github.io/2019/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
     <script type="text/javascript" id="page.configurations">
@@ -203,9 +212,12 @@
                                         <ul>
                                             <li>作者: Dmitry Sheiko | 译：甄玉磊</li>
                                             <li>原文地址：<a href="http://dsheiko.com/weblog/handling-forms-with-react-and-html5-form-validation-api" target="_blank" rel="noopener">Handling forms with React and HTML5 Form Validation API</a></li>
-                                            <li>译文地址：<a href="https://jdc.jd.com/archives/212629" target="_blank" rel="noopener">【译】使用React和HTML5表单验证API处理表单元素</a><a id="more"></a>
-                                            </li>
+                                            <li>译文地址：<a href="https://jdc.jd.com/archives/212629" target="_blank" rel="noopener">【译】使用React和HTML5表单验证API处理表单元素</a></li>
                                         </ul>
+                                        <blockquote>
+                                            <p>(最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这里。)<br><a id="more"></a>
+                                            </p>
+                                        </blockquote>
                                         <p><strong>【译者注：链接序号对应下面扩展阅读，另外可以点击阅读原文查看详细的链接文章】</strong></p>
                                         <blockquote>
                                             <p>简介：React 没有内置的表单验证逻辑，但是我们可以使用第三方解决方案。这种方法可能是开发包、表单生成器，还可能是 HOC 或者是包含校验逻辑的任意表单容器组件。那么选择哪种方法呢？我们将在本文中一 一介绍。</p>
@@ -303,7 +315,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre>
                                         <p>这是一个简单的表单，期望的功能 —— <code>&lt;input&gt;</code> 元素有<code>required</code>的属性。因此，如果我们快速按下提交按钮，表单内容不会提交到服务器。相反我们会看到在输入框旁出现提示信息，提示 <code>value</code> 值没有满足给出的限制条件（不能为空）。</p>
-                                        <p><img src="/images/pasted-0.png" alt="input 元素不能为空"></p>
+                                        <p><img src="/images/pasted-0.png" alt=""></p>
                                         <p>现在我们给输入框增加约束条件</p>
                                         <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
