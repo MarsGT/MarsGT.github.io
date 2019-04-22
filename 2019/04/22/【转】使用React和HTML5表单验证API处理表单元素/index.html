@@ -63,8 +63,7 @@
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素
  
- 
-     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
+ (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这">
     <meta name="keywords" content="React">
     <meta property="og:type" content="article">
     <meta property="og:title" content="【转】使用React和HTML5表单验证API处理表单元素">
@@ -74,23 +73,21 @@
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素
  
- 
-     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
+ (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-0.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-1.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-2.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-3.png">
     <meta property="og:image" content="https://marsgt.github.io/images/pasted-4.png">
-    <meta property="og:updated_time" content="2019-04-22T08:41:24.712Z">
+    <meta property="og:updated_time" content="2019-04-22T09:03:11.545Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【转】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:description" content="作者: Dmitry Sheiko | 译：甄玉磊
      原文地址：Handling forms with React and HTML5 Form Validation API
      译文地址：【译】使用React和HTML5表单验证API处理表单元素
  
- 
-     (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了">
+ (最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这">
     <meta name="twitter:image" content="https://marsgt.github.io/images/pasted-0.png">
     <link rel="canonical" href="https://marsgt.github.io/2019/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
     <script type="text/javascript" id="page.configurations">
@@ -214,10 +211,8 @@
                                             <li>原文地址：<a href="http://dsheiko.com/weblog/handling-forms-with-react-and-html5-form-validation-api" target="_blank" rel="noopener">Handling forms with React and HTML5 Form Validation API</a></li>
                                             <li>译文地址：<a href="https://jdc.jd.com/archives/212629" target="_blank" rel="noopener">【译】使用React和HTML5表单验证API处理表单元素</a></li>
                                         </ul>
-                                        <blockquote>
-                                            <p>(最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这里。)<br><a id="more"></a>
-                                            </p>
-                                        </blockquote>
+                                        <p>(最近在折腾 React，表单这块想用原生校验，找资料时发现了这篇文章。原译文代码的部分有些乱，所以处理了一下并转到这里。)<br><a id="more"></a>
+                                        </p>
                                         <p><strong>【译者注：链接序号对应下面扩展阅读，另外可以点击阅读原文查看详细的链接文章】</strong></p>
                                         <blockquote>
                                             <p>简介：React 没有内置的表单验证逻辑，但是我们可以使用第三方解决方案。这种方法可能是开发包、表单生成器，还可能是 HOC 或者是包含校验逻辑的任意表单容器组件。那么选择哪种方法呢？我们将在本文中一 一介绍。</p>
@@ -245,7 +240,7 @@
 </code></pre>
                                         <p>然而这个方案是相当复杂的<a href="https://github.com/andrewhathaway/Winterfell/blob/master/examples/schema.js" target="_blank" rel="noopener">[6]</a>。除此之外，我们还需要满足特定的语法。类似的另一种解决方案 react-jsonschema-form<a href="https://github.com/mozilla-services/react-jsonschema-form" target="_blank" rel="noopener">[7]</a>，依赖于 JSON schema<a href="http://json-schema.org/" target="_blank" rel="noopener">[8]</a>。JSON schema 是一种与项目无关的数据文档，用来注释和校验 JSON 文档。但是，它可以将我们定义的特有属性应用在项目中，且在文档中定义。</p>
                                         <h2 id="Formsy（译者注：一种-React-表单验证组件）"><a href="#Formsy（译者注：一种-React-表单验证组件）" class="headerlink" title="Formsy（译者注：一种 React 表单验证组件）"></a>Formsy（译者注：一种 React 表单验证组件）</h2>
-                                        <p>我更倾向于使用一种具有逻辑校验，适用于任意 HTML 表单的组件。其中最常用的方法是—— Formsy<a href="https://github.com/formsy/formsy-react" target="_blank" rel="noopener">[9]</a>。是什么样的结构呢？我构建了自己的表单组件，并用HOC（Higher-Order Components，高阶组件）<br>Formsy 包裹起来：</p>
+                                        <p>我更倾向于使用一种具有逻辑校验，适用于任意 HTML 表单的组件。其中最常用的方法是—— Formsy<a href="https://github.com/formsy/formsy-react" target="_blank" rel="noopener">[9]</a>。是什么样的结构呢？我构建了自己的表单组件，并用HOC（Higher-Order Components，高阶组件）把 Formsy 包裹起来：</p>
                                         <pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> withFormsy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"formsy-react"</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
 
@@ -305,9 +300,11 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-                                        <p>我们指定所有需要验证的区域都会添加 validations 属性（详见 validations 列表属性<a href="https://github.com/formsy/formsy-react/blob/master/API.md#validators" target="_blank" rel="noopener">[10]</a>）。使用 validationError 属性来设置所期望的校验信息，通过 onValid 和 onInvalid 接收表单校验状态。<br>这样看上去很简单、干净、灵活。但是我想知道的是为什么我们不依赖 HTML5 的表单验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[11]</a>，而是使用繁多的自定义实现呢？</p>
+                                        <p>我们指定所有需要验证的区域都会添加 validations 属性（详见 validations 列表属性<a href="https://github.com/formsy/formsy-react/blob/master/API.md#validators" target="_blank" rel="noopener">[10]</a>）。使用 validationError 属性来设置所期望的校验信息，通过 onValid 和 onInvalid 接收表单校验状态。</p>
+                                        <p>这样看上去很简单、干净、灵活。但是我想知道的是为什么我们不依赖 HTML5 的表单验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[11]</a>，而是使用繁多的自定义实现呢？</p>
                                         <h2 id="HTML5表单验证"><a href="#HTML5表单验证" class="headerlink" title="HTML5表单验证"></a>HTML5表单验证</h2>
-                                        <p>这项技术在很早之前就出现了，首次实现是在 2008 年的 Opera 9.5 中。现在所有的现代浏览器都支持它。表单（数据）验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[12]</a>引入额外的 HTML 属性和 input 类型，这些可以用来设置表单的校验规则。这些校验还可以使用特有的 API <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation" target="_blank" rel="noopener">[13]</a>来控制和自定义表单JavaScript。<br>让我们看下面的代码：</p>
+                                        <p>这项技术在很早之前就出现了，首次实现是在 2008 年的 Opera 9.5 中。现在所有的现代浏览器都支持它。表单（数据）验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[12]</a>引入额外的 HTML 属性和 input 类型，这些可以用来设置表单的校验规则。这些校验还可以使用特有的 API <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation" target="_blank" rel="noopener">[13]</a>来控制和自定义表单JavaScript。</p>
+                                        <p>让我们看下面的代码：</p>
                                         <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span>
@@ -316,7 +313,7 @@
 </code></pre>
                                         <p>这是一个简单的表单，期望的功能 —— <code>&lt;input&gt;</code> 元素有<code>required</code>的属性。因此，如果我们快速按下提交按钮，表单内容不会提交到服务器。相反我们会看到在输入框旁出现提示信息，提示 <code>value</code> 值没有满足给出的限制条件（不能为空）。</p>
                                         <p><img src="/images/pasted-0.png" alt=""></p>
-                                        <p>现在我们给输入框增加约束条件</p>
+                                        <p>现在我们给输入框增加约束条件：</p>
                                         <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nothing|nix<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -386,8 +383,9 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
                                             <li>submitting - 布尔值，表示是否正在提交表单（当用户按下提交按钮时该状态转化为 true，一旦用户定义的异步提交逻辑处理结束，该值变为 false）</li>
                                             <li>form - 用于访问表单组件 API 的表单实例；</li>
                                         </ul>
-                                        <p>在这里我们使用 <code>pristine</code> 和 <code>submitting</code> 属性将提交按钮切换为禁用状态。<br>为了在提交表单的同时校验表单输入信息，我们使用 InputGroup 包裹这些input表单。</p>
-                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span> <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span> <span class="token string">"email"</span> <span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token attr-name">}}</span><span class="token punctuation">></span></span>
+                                        <p>在这里我们使用 <code>pristine</code> 和 <code>submitting</code> 属性将提交按钮切换为禁用状态。</p>
+                                        <p>为了在提交表单的同时校验表单输入信息，我们使用 InputGroup 包裹这些input表单。</p>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span> <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span> <span class="token string">"email"</span> <span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
   <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span> error<span class="token punctuation">,</span> valid <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">htmlFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emailInput<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Email address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
@@ -401,7 +399,8 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
   <span class="token punctuation">)</span><span class="token punctuation">}</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>InputGroup</span><span class="token punctuation">></span></span>
 </code></pre>
-                                        <p>使用 <code>validate</code> 属性我们可以指定该组内应该使用什么样的 input。[“email”] 意味着我们只有一个名称为“email”的input。<br>在这个作用区域内我们接收到的状态对象具有下面的属性：</p>
+                                        <p>使用 <code>validate</code> 属性我们可以指定该组内应该使用什么样的 input。[“email”] 意味着我们只有一个名称为“email”的input。</p>
+                                        <p>在这个作用区域内我们接收到的状态对象具有下面的属性：</p>
                                         <ul>
                                             <li>errors – 所有注册 input 的错误信息数组；</li>
                                             <li>error – 最后显示的错误信息；</li>
@@ -481,7 +480,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
                                             <li>演示例子链接<a href="https://dsheiko.github.io/react-html5-form" target="_blank" rel="noopener">[19]</a></li>
                                         </ul>
                                         <hr>
-                                        <h2 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h2>
+                                        <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2>
                                         <ol>
                                             <li><a href="https://tools.ietf.org/html/rfc1866" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc1866</a></li>
                                             <li><a href="https://reactjs.org/docs/forms.html" target="_blank" rel="noopener">https://reactjs.org/docs/forms.html</a></li>
@@ -622,7 +621,7 @@ answer<span class="token punctuation">.</span><span class="token function">addEv
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5表单验证"><span class="nav-number">4.</span> <span class="nav-text">HTML5表单验证</span></a></li>
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#满足表单校验的-React-API"><span class="nav-number">5.</span> <span class="nav-text">满足表单校验的 React API</span></a></li>
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li>
-                                        <li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读："><span class="nav-number">7.</span> <span class="nav-text">扩展阅读：</span></a></li>
+                                        <li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读"><span class="nav-number">7.</span> <span class="nav-text">扩展阅读</span></a></li>
                                     </ol>
                                 </div>
                             </div>
