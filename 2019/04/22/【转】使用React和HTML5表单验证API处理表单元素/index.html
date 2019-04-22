@@ -76,7 +76,7 @@
     <meta property="og:image" content="https://images/pasted-2.png/">
     <meta property="og:image" content="https://images/pasted-3.png/">
     <meta property="og:image" content="https://images/pasted-4.png/">
-    <meta property="og:updated_time" content="2019-04-22T07:31:09.761Z">
+    <meta property="og:updated_time" content="2019-04-22T07:49:36.132Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="【转】使用React和HTML5表单验证API处理表单元素">
     <meta name="twitter:description" content="作者: Dmitry Sheiko | 译：甄玉磊
@@ -91,42 +91,41 @@
     </script>
     <title>【转】使用React和HTML5表单验证API处理表单元素 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -169,15 +168,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2019/04/22/【转】使用React和HTML5表单验证API处理表单元素/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -196,7 +195,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -214,160 +213,159 @@
                                         <p>每当我们提及应用程序中的用户输入框时，首先映入脑海的就是 HTML 的表单元素。最早的 HTML 版本就已经支持 Web 表单。众所周知，这一特性于 1991 年提出，且在 1995 年作为 RFC（征求评议文件） 1866 号协议<a href="https://tools.ietf.org/html/rfc1866" target="_blank" rel="noopener">[1]</a>标准化。与此同时表单元素也得到了广泛应用，几乎每一个代码库和框架中都在使用。那么在 React 中如何使用呢？ Facebook 在如何处理表单上提供了受控的输入框<a href="https://reactjs.org/docs/forms.html" target="_blank" rel="noopener">[2]</a>。该输入框指的是受控表单，主要是通过交互事件和通过 value 属性传递 state 值实现对输入框的控制。因此，你可以决定表单的校验和提交逻辑。拥有好的用户体验的 UI ，意味着你应该考虑到诸如“提交”、“校验”的逻辑以及内联的错误提示信息，根据有效性、原始状态和提交状态来切换元素。难道我们不能提取这种逻辑，简单的插入到表单元素中吗？当然可以，唯一要考虑的问题是我们要采用何种方法和解决方案。</p>
                                         <h2 id="组件库中的表单"><a href="#组件库中的表单" class="headerlink" title="组件库中的表单"></a>组件库中的表单</h2>
                                         <p>如果你习惯使用诸如 ReactBootstrap<a href="https://react-bootstrap.github.io/components/forms/" target="_blank" rel="noopener">[3]</a> 或者 AntDesign<a href="https://ant.design/components/form/" target="_blank" rel="noopener">[4]</a> 等 React 组件库，很可能已经对其中的表单组件感到满意。这两个组件库所提供的表单组件满足了多种需求。例如在 AntDesign 组件库中我们定义了一个表单元素 Form 以及带有表单域的 FormItem ，即包裹了任意输入控制的容器。你可以在 FormItem 设置校验规则：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;FormItem&gt;</span><br><span class="line">   &#123;getFieldDecorator(<span class="string">'select'</span>, &#123;</span><br><span class="line">     rules: [</span><br><span class="line">       &#123; <span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">'Please select your country!'</span> &#125;,</span><br><span class="line">     ],</span><br><span class="line">   &#125;)(</span><br><span class="line">     &lt;Select placeholder=<span class="string">"Please select a country"</span>&gt;</span><br><span class="line">       &lt;Option value=<span class="string">"china"</span>&gt;China&lt;<span class="regexp">/Option&gt;</span></span><br><span class="line"><span class="regexp">       &lt;Option value="use"&gt;U.S.A&lt;/</span>Option&gt;</span><br><span class="line">     &lt;<span class="regexp">/Select&gt;</span></span><br><span class="line"><span class="regexp">   )&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>FormItem&gt;</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FormItem</span><span class="token punctuation">></span></span>
+   <span class="token punctuation">{</span><span class="token function">getFieldDecorator</span><span class="token punctuation">(</span><span class="token string">'select'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+     rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+       <span class="token punctuation">{</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'Please select your country!'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     <span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Select</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Please</span> <span class="token attr-name">select</span> <span class="token attr-name">a</span> <span class="token attr-name">country"</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>china<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>China<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Option</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>use<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>U<span class="token punctuation">.</span>S<span class="token punctuation">.</span>A<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Option</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Select</span><span class="token punctuation">></span></span>
+   <span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>FormItem</span><span class="token punctuation">></span></span>
+</code></pre>
                                         <p>举例来说，在处理表单提交时，你可以执行 <code>this.props.form.validateFields()</code> 来验证。这样看起来似乎所有事情都考虑到了。然而该解决方案是针对框架的。如果你没有使用这些组件库，则无法使用该方法。</p>
                                         <h2 id="基于schema构建表单"><a href="#基于schema构建表单" class="headerlink" title="基于schema构建表单"></a>基于schema构建表单</h2>
                                         <p>或者我们可以基于 JSON 细则构建单独的表单组件，例如我们可以引入 Winterfell 组件<a href="https://github.com/andrewhathaway/Winterfell" target="_blank" rel="noopener">[5]</a>，构建如下所示的表单组件</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;Winterfell schema=&#123;loginSchema&#125; &gt;<span class="xml"><span class="tag">&lt;/<span class="name">Winterfell</span>&gt;</span></span></span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Winterfell</span> <span class="token attr-name">schema</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>loginSchema<span class="token punctuation">}</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Winterfell</span><span class="token punctuation">></span></span>
+</code></pre>
                                         <p>然而这个方案是相当复杂的<a href="https://github.com/andrewhathaway/Winterfell/blob/master/examples/schema.js" target="_blank" rel="noopener">[6]</a>。除此之外，我们还需要满足特定的语法。类似的另一种解决方案 react-jsonschema-form<a href="https://github.com/mozilla-services/react-jsonschema-form" target="_blank" rel="noopener">[7]</a>，依赖于 JSON schema<a href="http://json-schema.org/" target="_blank" rel="noopener">[8]</a>。JSON schema 是一种与项目无关的数据文档，用来注释和校验 JSON 文档。但是，它可以将我们定义的特有属性应用在项目中，且在文档中定义。</p>
                                         <h2 id="Formsy（译者注：一种-React-表单验证组件）"><a href="#Formsy（译者注：一种-React-表单验证组件）" class="headerlink" title="Formsy（译者注：一种 React 表单验证组件）"></a>Formsy（译者注：一种 React 表单验证组件）</h2>
                                         <p>我更倾向于使用一种具有逻辑校验，适用于任意 HTML 表单的组件。其中最常用的方法是—— Formsy<a href="https://github.com/formsy/formsy-react" target="_blank" rel="noopener">[9]</a>。是什么样的结构呢？我构建了自己的表单组件，并用HOC（Higher-Order Components，高阶组件）<br>Formsy 包裹起来：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">import</span> &#123; withFormsy &#125; <span class="keyword">from</span> <span class="string">"formsy-react"</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInput</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  changeValue = <span class="function">(<span class="params"> event </span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.props.setValue( event.currentTarget.value );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          onChange=&#123; <span class="keyword">this</span>.changeValue &#125;</span><br><span class="line">          type=<span class="string">"text"</span></span><br><span class="line">          value=&#123; <span class="keyword">this</span>.props.getValue() || <span class="string">""</span> &#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;span&gt;&#123; <span class="keyword">this</span>.props.getErrorMessage() &#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withFormsy( MyInput );</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> withFormsy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"formsy-react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyInput</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+
+  changeValue <span class="token operator">=</span> <span class="token punctuation">(</span> event <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span> event<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>value <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+          <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>changeValue <span class="token punctuation">}</span></span>
+          <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+          <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">getErrorMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">withFormsy</span><span class="token punctuation">(</span> MyInput <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>如上所示，组件的 props 属性中接收了 <code>getErrorMessage()</code> 函数，该函数可以用来生成行内错误提示信息。<br>这样我们开发了一个输入域组件，将其放入表单中如下所示：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">import</span> Formsy <span class="keyword">from</span> <span class="string">"formsy-react"</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> MyInput <span class="keyword">from</span> <span class="string">"./MyInput"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  onValid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onInvalid = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">valid</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  submit( model ) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Formsy onValidSubmit=&#123;<span class="keyword">this</span>.submit&#125; onValid=&#123;<span class="keyword">this</span>.onValid&#125; onInvalid=&#123;<span class="keyword">this</span>.onInvalid&#125;&gt;</span><br><span class="line">        &lt;MyInput</span><br><span class="line">          name=<span class="string">"email"</span></span><br><span class="line">          validations=<span class="string">"isEmail"</span></span><br><span class="line">          validationError=<span class="string">"This is not a valid email"</span></span><br><span class="line">          required</span><br><span class="line">        &gt;<span class="xml"><span class="tag">&lt;/<span class="name">MyInput</span>&gt;</span></span></span><br><span class="line">        &lt;button type=<span class="string">"submit"</span> disabled=&#123; !<span class="keyword">this</span>.state.valid &#125;&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Formsy&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">import</span> Formsy <span class="token keyword">from</span> <span class="token string">"formsy-react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> MyInput <span class="token keyword">from</span> <span class="token string">"./MyInput"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+
+  onValid <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> valid<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  onInvalid <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> valid<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">submit</span><span class="token punctuation">(</span> model <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//...</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Formsy</span> <span class="token attr-name">onValidSubmit</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>submit<span class="token punctuation">}</span></span> <span class="token attr-name">onValid</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onValid<span class="token punctuation">}</span></span> <span class="token attr-name">onInvalid</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onInvalid<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyInput</span>
+          <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span>
+          <span class="token attr-name">validations</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>isEmail<span class="token punctuation">"</span></span>
+          <span class="token attr-name">validationError</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This</span> <span class="token attr-name">is</span> <span class="token attr-name">not</span> <span class="token attr-name">a</span> <span class="token attr-name">valid</span> <span class="token attr-name">email"</span>
+          <span class="token attr-name">required</span>
+        <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MyInput</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>valid <span class="token punctuation">}</span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Formsy</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
                                         <p>我们指定所有需要验证的区域都会添加 validations 属性（详见 validations 列表属性<a href="https://github.com/formsy/formsy-react/blob/master/API.md#validators" target="_blank" rel="noopener">[10]</a>）。使用 validationError 属性来设置所期望的校验信息，通过 onValid 和 onInvalid 接收表单校验状态。<br>这样看上去很简单、干净、灵活。但是我想知道的是为什么我们不依赖 HTML5 的表单验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[11]</a>，而是使用繁多的自定义实现呢？</p>
                                         <h2 id="HTML5表单验证"><a href="#HTML5表单验证" class="headerlink" title="HTML5表单验证"></a>HTML5表单验证</h2>
                                         <p>这项技术在很早之前就出现了，首次实现是在 2008 年的 Opera 9.5 中。现在所有的现代浏览器都支持它。表单（数据）验证<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation" target="_blank" rel="noopener">[12]</a>引入额外的 HTML 属性和 input 类型，这些可以用来设置表单的校验规则。这些校验还可以使用特有的 API <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation" target="_blank" rel="noopener">[13]</a>来控制和自定义表单JavaScript。<br>让我们看下面的代码：</p>
-                                        <figure class="highlight html">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"answer"</span>&gt;</span>What do you know, Jon Snow?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"answer"</span> <span class="attr">name</span>=<span class="string">"answer"</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>Ask<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Ask<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
                                         <p>这是一个简单的表单，期望的功能 —— <code>&lt;input&gt;</code> 元素有<code>required</code>的属性。因此，如果我们快速按下提交按钮，表单内容不会提交到服务器。相反我们会看到在输入框旁出现提示信息，提示 <code>value</code> 值没有满足给出的限制条件（不能为空）。</p>
                                         <p><img src="\\images\pasted-0.png\" alt="input 元素不能为空"></p>
                                         <p>现在我们给输入框增加约束条件</p>
-                                        <figure class="highlight html">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"answer"</span>&gt;</span>What do you know, Jon Snow?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"answer"</span> <span class="attr">name</span>=<span class="string">"answer"</span> <span class="attr">required</span> <span class="attr">pattern</span>=<span class="string">"nothing|nix"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>Ask<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nothing|nix<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Ask<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
                                         <p>错误提示信息并没有给出我们期望的信息，不是吗？我们可以自定义它（例如为了解释所期望的用户输入值）或者仅仅对输入值进行转换。</p>
-                                        <figure class="highlight html">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"answer"</span>&gt;</span>What do you know, Jon Snow?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"answer"</span> <span class="attr">name</span>=<span class="string">"answer"</span> <span class="attr">required</span> <span class="attr">pattern</span>=<span class="string">"nothing|nix"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>Ask<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">const</span> answer = <span class="built_in">document</span>.querySelector( <span class="string">"[name=answer]"</span> );</span><br><span class="line">answer.addEventListener( <span class="string">"input"</span>, ( event ) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> ( answer.validity.patternMismatch ) &#123;</span><br><span class="line">    answer.setCustomValidity(<span class="string">"Oh, it's not a right answer!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    answer.setCustomValidity( <span class="string">""</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nothing|nix<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Ask<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> answer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">"[name=answer]"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+answer<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">"input"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span> event <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> answer<span class="token punctuation">.</span>validity<span class="token punctuation">.</span>patternMismatch <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    answer<span class="token punctuation">.</span><span class="token function">setCustomValidity</span><span class="token punctuation">(</span><span class="token string">"Oh, it's not a right answer!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    answer<span class="token punctuation">.</span><span class="token function">setCustomValidity</span><span class="token punctuation">(</span> <span class="token string">""</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>以上代码只是检查 input 框的输入事件，其校验状态 <code>patternMismatch</code> 的变化。当输入的值与定义的 <code>pattern</code> 不匹配时，就会出现错误提示信息。如果我们设置了其他的限制条件<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation" target="_blank" rel="noopener">[14]</a>，也会被我们所定义的事件处理函数所覆盖。</p>
-                                        <p><img src="\\images\pasted-1.png\" alt="upload successful"></p>
+                                        <p><img src="\\images\pasted-1.png\" alt=""></p>
                                         <p>你对这个工具提示不太满意？是的，它在不同的浏览器中表现形式是不一样的。让我们给表单元素增加novalidate属性，并且自定义错误提示：</p>
-                                        <figure class="highlight html">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">novalidate</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"answer"</span>&gt;</span>What do you know, Jon Snow?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"answer"</span> <span class="attr">name</span>=<span class="string">"answer"</span> <span class="attr">required</span> <span class="attr">pattern</span>=<span class="string">"nothing|nix"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-bind</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>Ask<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">const</span> answer = <span class="built_in">document</span>.querySelector( <span class="string">"[name=answer]"</span> ),</span><br><span class="line">      answerError = <span class="built_in">document</span>.querySelector( <span class="string">"[name=answer] + [data-bind=message]"</span> );</span><br><span class="line"></span><br><span class="line">answer.addEventListener( <span class="string">"input"</span>, ( event ) =&gt; &#123;</span><br><span class="line">  answerError.innerHTML = answer.validationMessage;</span><br><span class="line">&#125;);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
-                                        <p><img src="\\images\pasted-2.png\" alt="upload successful"></p>
+                                        <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">novalidate</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>What do you know, Jon Snow?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>answer<span class="token punctuation">"</span></span> <span class="token attr-name">required</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nothing|nix<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-bind</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Ask<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+</code></pre>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> answer <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">"[name=answer]"</span> <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      answerError <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">"[name=answer] + [data-bind=message]"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+answer<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">"input"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span> event <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  answerError<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> answer<span class="token punctuation">.</span>validationMessage<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                        <p><img src="\\images\pasted-2.png\" alt=""></p>
                                         <p>尽管这个介绍比较简短，你也能体会到技术背后的力量和灵活性。最重要的是，它是原生的表单验证。所以我们为什么要依赖繁多的自定义库。而不去使用原生的验证呢？</p>
                                         <h2 id="满足表单校验的-React-API"><a href="#满足表单校验的-React-API" class="headerlink" title="满足表单校验的 React API"></a>满足表单校验的 React API</h2>
                                         <p>react-html5-form 将 React（还可以选择Redux） 和 HTML5 表单校验 API 联系起来了。它提供 <code>From</code> 组件和 <code>InputGroup</code> 组件（类似于 Formsy 组件库中的 input，或者 AntDesign 组件库中的 <code>FormItem</code> ）。这样，<code>Form</code> 组件定义了表单及其作用区域。<code>InputGroup</code> 组件可以包含一个或多个输入框。我们简单地用这些组件包裹一个任意的表单内容（只是普通的 HTML 或 React 组件）。在用户事件上，我们可以请求表单验证，并根据有效的输入值，获得 <code>Form</code> 和 <code>InputGroup</code> 组件的更新状态。</p>
                                         <p>好了，让我们实践一下，首先我们定义表单区域：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Form, InputGroup &#125; <span class="keyword">from</span> <span class="string">"Form"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MyForm = <span class="function"><span class="params">props</span> =&gt;</span> (</span><br><span class="line">  &lt;Form&gt;</span><br><span class="line">  &#123;(&#123; error, valid, pristine, submitting, form &#125;) =&gt; (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">      Form content</span><br><span class="line">      &lt;button disabled=&#123; ( pristine || submitting ) &#125; type=<span class="string">"submit"</span>&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>&gt;</span><br><span class="line">    )&#125;</span><br><span class="line">  &lt;<span class="regexp">/Form&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">render( &lt;MyForm &gt;&lt;/</span>MyForm&gt;, <span class="built_in">document</span>.getElementById( <span class="string">"app"</span> ) );</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-dom"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Form<span class="token punctuation">,</span> InputGroup <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"Form"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> MyForm <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Form<span class="token operator">></span>
+  <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span> error<span class="token punctuation">,</span> valid<span class="token punctuation">,</span> pristine<span class="token punctuation">,</span> submitting<span class="token punctuation">,</span> form <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span><span class="token operator">></span>
+      Form content
+      <span class="token operator">&lt;</span>button disabled<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token punctuation">(</span> pristine <span class="token operator">||</span> submitting <span class="token punctuation">)</span> <span class="token punctuation">}</span> type<span class="token operator">=</span><span class="token string">"submit"</span><span class="token operator">></span>Submit<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Form<span class="token operator">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span> <span class="token operator">&lt;</span>MyForm <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>MyForm<span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span> <span class="token string">"app"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>作用域接收到的状态对象具有以下属性：</p>
                                         <ul>
                                             <li>error - 表单错误信息（通常指的是服务端的校验信息），可以通过 <code>form.setError()</code> 进行设置；</li>
@@ -377,18 +375,20 @@
                                             <li>form - 用于访问表单组件 API 的表单实例；</li>
                                         </ul>
                                         <p>在这里我们使用 <code>pristine</code> 和 <code>submitting</code> 属性将提交按钮切换为禁用状态。<br>为了在提交表单的同时校验表单输入信息，我们使用 InputGroup 包裹这些input表单。</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;InputGroup validate=&#123;[ <span class="string">"email"</span> ]&#125; &#125;&#125;&gt;</span><br><span class="line">  &#123;(&#123; error, valid &#125;) =&gt; (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;label htmlFor=<span class="string">"emailInput"</span>&gt;Email address&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">      &lt;input</span></span><br><span class="line"><span class="regexp">        type="email"</span></span><br><span class="line"><span class="regexp">        required</span></span><br><span class="line"><span class="regexp">        name="email"</span></span><br><span class="line"><span class="regexp">        id="emailInput" /</span>&gt;</span><br><span class="line">      &#123; error &amp;&amp; (<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"invalid-feedback"</span>&gt;</span>&#123;error&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)  &#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  )&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>InputGroup&gt;</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span> <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span> <span class="token string">"email"</span> <span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token attr-name">}}</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span> error<span class="token punctuation">,</span> valid <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">htmlFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emailInput<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Email address<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+        <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span>
+        <span class="token attr-name">required</span>
+        <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span>
+        <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emailInput<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token punctuation">{</span> error <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>invalid-feedback<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>error<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">)</span>  <span class="token punctuation">}</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>InputGroup</span><span class="token punctuation">></span></span>
+</code></pre>
                                         <p>使用 <code>validate</code> 属性我们可以指定该组内应该使用什么样的 input。[“email”] 意味着我们只有一个名称为“email”的input。<br>在这个作用区域内我们接收到的状态对象具有下面的属性：</p>
                                         <ul>
                                             <li>errors – 所有注册 input 的错误信息数组；</li>
@@ -397,79 +397,70 @@
                                             <li>inputGroup – 访问表单组件 API 的实例；</li>
                                         </ul>
                                         <p>渲染之后我们可以得到一个 email 类型的输入框。如果该值为空，或在提交时包含无效的电子邮件地址，则在输入框旁边显示相应的验证消息。</p>
-                                        <p><img src="\\images\pasted-3.png\" alt="upload successful"></p>
+                                        <p><img src="\\images\pasted-3.png\" alt=""></p>
                                         <p>还记得我们在使用原生表单校验 API 自定义错误提示信息时的焦头烂额吗？使用 InputGroup 这一情况将变得好转：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;InputGroup</span><br><span class="line">    validate=&#123;[ <span class="string">"email"</span> ]&#125;</span><br><span class="line">    translate=&#123;&#123;</span><br><span class="line">      email: &#123;</span><br><span class="line">        valueMissing: <span class="string">"C'mon! We need some value"</span>,</span><br><span class="line">        typeMismatch: <span class="string">"Hey! We expect an email address here"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;&#125;&gt;</span><br><span class="line">...</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span>
+    <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span> <span class="token string">"email"</span> <span class="token punctuation">]</span><span class="token punctuation">}</span></span>
+    <span class="token attr-name">translate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+      email<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        valueMissing<span class="token punctuation">:</span> <span class="token string">"C'mon! We need some value"</span><span class="token punctuation">,</span>
+        typeMismatch<span class="token punctuation">:</span> <span class="token string">"Hey! We expect an email address here"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></span><span class="token attr-name">}</span><span class="token punctuation">></span></span>
+<span class="token operator">...</span>
+</code></pre>
                                         <p>我们可以将每个 input 定义为 key-value 的哈希结构，其中 keys 表示有效性属性<a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState" target="_blank" rel="noopener">[15]</a>，values 表示自定义消息。</p>
                                         <p>自定义消息很简单。那么自定义验证该如何实现呢？我们可以使用校验的 prop 来做到：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;InputGroup validate=&#123;&#123;</span><br><span class="line">    <span class="string">"email"</span>: <span class="function">(<span class="params"> input </span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> ( !EMAIL_WHITELIST.includes( input.current.value ) ) &#123;</span><br><span class="line">        input.setCustomValidity( <span class="string">"Only whitelisted email allowed"</span> );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">...</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>InputGroup</span> <span class="token attr-name">validate</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+    <span class="token string">"email"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span> input <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span>EMAIL_WHITELIST<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span> input<span class="token punctuation">.</span>current<span class="token punctuation">.</span>value <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        input<span class="token punctuation">.</span><span class="token function">setCustomValidity</span><span class="token punctuation">(</span> <span class="token string">"Only whitelisted email allowed"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></span>
+  <span class="token attr-name">}}</span><span class="token punctuation">></span></span>
+<span class="token operator">...</span>
+</code></pre>
                                         <p>在这个例子中，我们提供的是包含输入框名字的哈希而不是数组，其中 key 是输入框的名字， value 是验证处理函数。处理函数校验输入值（可以异步完成）并返回一个布尔类型的有效状态。使用 <code>input.setCustomValidity</code>，我们可以自定义验证消息。</p>
                                         <p>输入框并不总是提交时才进行校验。为了达到实时验证，首先我们需要给输入事件定义事件处理函数：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">const</span> onInput = <span class="function">(<span class="params"> e, inputGroup </span>) =&gt;</span> &#123;</span><br><span class="line">  inputGroup.checkValidityAndUpdate();</span><br><span class="line">&#125;;</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> onInput <span class="token operator">=</span> <span class="token punctuation">(</span> e<span class="token punctuation">,</span> inputGroup <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  inputGroup<span class="token punctuation">.</span><span class="token function">checkValidityAndUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>事实上，我们可以在用户每次输入时重新验证。控制逻辑如下所示：</p>
-                                        <figure class="highlight jsx">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line">&lt;input</span><br><span class="line">  type=<span class="string">"email"</span></span><br><span class="line">  required</span><br><span class="line">  name=<span class="string">"email"</span></span><br><span class="line">  onInput=&#123;( e ) =&gt; onInput( e, inputGroup, form ) &#125;</span><br><span class="line">  id=<span class="string">"emailInput"</span> /&gt;</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span>
+  <span class="token attr-name">required</span>
+  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span>
+  <span class="token attr-name">onInput</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span> e <span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">onInput</span><span class="token punctuation">(</span> e<span class="token punctuation">,</span> inputGroup<span class="token punctuation">,</span> form <span class="token punctuation">)</span> <span class="token punctuation">}</span></span>
+  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>emailInput<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+</code></pre>
                                         <p>这样，每当输入值改变时都会进行验证。如果输入值是无效的，我们就会马上收到错误的提示信息。</p>
                                         <p>你可以通过这里找到以上示例的源代码<a href="https://github.com/dsheiko/react-html5-form/blob/master/demo/bootstrap/src/index.jsx" target="_blank" rel="noopener">[16]</a>。</p>
                                         <p>顺便说一句，你是否考虑过将组件派生的表单状态树和 Redux 存储值联系起来？我们也可以这样做。</p>
                                         <p>Redux 提供了包含所有注册表单状态树的 reducer：<code>html5form</code>。我们可以按照如下所示将 <code>html5form</code> 和 store 结合起来：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createStore, combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">"react-redux"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; App &#125; <span class="keyword">from</span> <span class="string">"./Containers/App.jsx"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; html5form &#125; <span class="keyword">from</span> <span class="string">"react-html5-form"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appReducer = combineReducers(&#123;</span><br><span class="line">  html5form</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Store creation</span></span><br><span class="line"><span class="keyword">const</span> store = createStore( appReducer );</span><br><span class="line"></span><br><span class="line">render( <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">App</span> &gt;</span><span class="tag">&lt;/<span class="name">App</span>&gt;</span></span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span>, <span class="built_in">document</span>.getElementById( <span class="string">"app"</span> ) );</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-dom"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> combineReducers <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"redux"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-redux"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> App <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"./Containers/App.jsx"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> html5form <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-html5-form"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> appReducer <span class="token operator">=</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  html5form
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Store creation</span>
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span> appReducer <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span> <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>App <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>App<span class="token operator">></span>
+ <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span> <span class="token string">"app"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>当我们运行该应用程序时，就能在 store 中找到所有与表单相关的状态。</p>
-                                        <p><img src="\\images\pasted-4.png\" alt="upload successful"></p>
+                                        <p><img src="\\images\pasted-4.png\" alt=""></p>
                                         <p>点击这里<a href="https://github.com/dsheiko/react-html5-form/blob/master/demo/bootstrap-redux/src/index.jsx" target="_blank" rel="noopener">[17]</a>查看上述 demo 的源代码。</p>
                                         <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
                                         <p>React 没有内置的表单验证逻辑，但是我们可以使用第三方解决方案。这种方法可能是开发包、表单生成器，还可能是 HOC 或者是包含校验逻辑的任意表单容器组件。我个人倾向于使用容器组件，该组件依赖于 HTML 内置表单验证 API ，并在表单和表单域的范围中显示有效性状态。</p>
@@ -478,7 +469,7 @@
                                             <li>演示例子链接<a href="https://dsheiko.github.io/react-html5-form" target="_blank" rel="noopener">[19]</a></li>
                                         </ul>
                                         <hr>
-                                        <h3 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h3>
+                                        <h2 id="扩展阅读："><a href="#扩展阅读：" class="headerlink" title="扩展阅读："></a>扩展阅读：</h2>
                                         <ol>
                                             <li><a href="https://tools.ietf.org/html/rfc1866" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc1866</a></li>
                                             <li><a href="https://reactjs.org/docs/forms.html" target="_blank" rel="noopener">https://reactjs.org/docs/forms.html</a></li>
@@ -567,7 +558,7 @@
                         </ul>
                         <section class="site-overview-wrap sidebar-panel">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>
@@ -618,11 +609,8 @@
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#Formsy（译者注：一种-React-表单验证组件）"><span class="nav-number">3.</span> <span class="nav-text">Formsy（译者注：一种 React 表单验证组件）</span></a></li>
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5表单验证"><span class="nav-number">4.</span> <span class="nav-text">HTML5表单验证</span></a></li>
                                         <li class="nav-item nav-level-2"><a class="nav-link" href="#满足表单校验的-React-API"><span class="nav-number">5.</span> <span class="nav-text">满足表单校验的 React API</span></a></li>
-                                        <li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a>
-                                            <ol class="nav-child">
-                                                <li class="nav-item nav-level-3"><a class="nav-link" href="#扩展阅读："><span class="nav-number">6.1.</span> <span class="nav-text">扩展阅读：</span></a></li>
-                                            </ol>
-                                        </li>
+                                        <li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li>
+                                        <li class="nav-item nav-level-2"><a class="nav-link" href="#扩展阅读："><span class="nav-number">7.</span> <span class="nav-text">扩展阅读：</span></a></li>
                                     </ol>
                                 </div>
                             </div>

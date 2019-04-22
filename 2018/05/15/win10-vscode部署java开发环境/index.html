@@ -79,42 +79,41 @@
     </script>
     <title>win10+vscode部署java开发环境 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/05/15/win10-vscode部署java开发环境/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -195,22 +194,44 @@
                                             <li><strong>部署JDK</strong><br>其实之前在大概1.5的时候就看过一点Java的东西，也装过JDK还有JRE，也装过Eclipse，但是前边那俩太占系统资源了，后边的又太丑，没多久就让我全给卸了。这回一开始装的时候，其实我也试过装JDK，但是也还是和之前一个德行，直到我看到了<a href="http://openjdk.java.net/" target="_blank" rel="noopener">OpenJDK</a>……卧槽要的就是这个！直接到它的下载里把东西拖回来解压，然后到开始菜单打开“设置”（齿轮图标），直接搜索“高级”，点击“查看高级系统设置”打开“系统属性”窗口，再点“环境变量…”按钮打开“环境变量”，在上边用户变量里加个<code>JAVA_HOME</code>的变量，值就是你JDK解压到的位置（可以直接用浏览目录选择）；再点开“Path”，在下边新增一项<code>%JAVA_HOME%\bin</code>，全部确定退出去就可以了。这时可以用<kbd>Win</kbd>+<kbd>R</kbd>并输入<code>cmd</code>打开命令提示符窗口，输入<code>java -version</code>能看到OpenJDK版本信息的话，就说明搞定了。</li>
                                             <li><strong>部署Maven</strong><br>Maven其实也是类似于JDK这种，直接去<a href="https://maven.apache.org/" target="_blank" rel="noopener">官网</a>点Download，直接找到Binary zip archive的Link直接下载就行，也是拖到一个地方解压，然后点开“环境变量”，在用户变量里分别加个<code>M2_HOME</code>，都指向解压目录，然后再到Path里加个<code>%M2_HOME%\bin</code>全部确定就可以了。验证时到cmd里输下<code>mvn -v</code>，同样如果有版本信息那就是成功了。</li>
                                             <li><strong>在VScode里安装相关插件及配置</strong><br>Microsoft有个官方的插件“Java Extension Pack”，点开它的“依赖项”可以看到就是需要装的几个插件，可以直接装这个（会附带把依赖项都装上）或者单装都可以，装好以设置下<code>java.home</code>、<code>maven.executable.path</code>和<code>maven.terminal.useJavaHome</code>基本就能跑了，当然记得把<code>terminal.integrated.shell.windows</code>也要一并设置好。</li>
-                                            <li>
-                                                <p><strong>配置MAVEN国内代理</strong><br>首先打开MAVEN的解压目录，然后找到conf文件夹，把<code>settings.xml</code>文件复制到用户文件夹的<code>.m2</code>文件夹下，然后找到<code>&lt;mirrors&gt;</code>这段，添加：</p>
-                                                <figure class="highlight xml">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>central<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Maven Repository Switchboard<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo1.maven.org/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo2<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo2.maven.org/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>ibiblio<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Human Readable Name for this Mirror.<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://mirrors.ibiblio.org/pub/mirrors/maven2/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>jboss-public-repository-group<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>JBoss Public Repository Group<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repository.jboss.org/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>maven.net.cn<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>oneof the central mirrors in china<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.net.cn/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                                <p>进去，保存退出。</p>
-                                            </li>
+                                            <li><strong>配置MAVEN国内代理</strong><br>首先打开MAVEN的解压目录，然后找到conf文件夹，把<code>settings.xml</code>文件复制到用户文件夹的<code>.m2</code>文件夹下，然后找到<code>&lt;mirrors&gt;</code>这段，添加：
+                                                <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>alimaven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>aliyun maven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.aliyun.com/nexus/content/groups/public/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Maven Repository Switchboard<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://repo1.maven.org/maven2/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>repo2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Human Readable Name for this Mirror.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://repo2.maven.org/maven2/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>ibiblio<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Human Readable Name for this Mirror.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://mirrors.ibiblio.org/pub/mirrors/maven2/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>jboss-public-repository-group<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>JBoss Public Repository Group<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://repository.jboss.org/nexus/content/groups/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>maven.net.cn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>oneof the central mirrors in china<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.net.cn/content/groups/public/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span>
+</code></pre> 进去，保存退出。</li>
                                             <li><strong>部署Gradle</strong><br>Gradle是Google家的构建系统工具，一般Android上用的更多些。由于语法是基于Groovy实现的，所以手写时会比XML爽不少。在安装上，Gradle跟其它工具大同小异，都是先去<a href="http://www.gradle.org/downloads" target="_blank" rel="noopener">官网下载</a>，然后解压到一个目录，再在系统里加入<code>GRADLE_HOME</code>变量，并把bin目录加入到Path里即可。<br>Gradle文档可以参考<a href="https://doc.yonyoucloud.com/doc/wiki/project/GradleUserGuide-Wiki/index.html" target="_blank" rel="noopener">Gradle 用户指南官方文档中文版</a>。</li>
                                         </ol>
                                     </div>
@@ -281,7 +302,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

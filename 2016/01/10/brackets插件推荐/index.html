@@ -79,42 +79,41 @@
     </script>
     <title>brackets插件推荐 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2016/01/10/brackets插件推荐/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -198,22 +197,14 @@
                                             <li>Extensions Rating<br>插件管理器的“美化”插件，会增加一些 GitHub 上的头像啊 stars 数啊 forks 数啊什么的东西，方便选择。看各人喜好装吧。</li>
                                             <li>Brackets File Tree Exclude<br>左边文件列表的排除插件，可以指定一些比如像是 git 啊 node_modules 啊之类的不想让它出现的东东。</li>
                                             <li>Js-Beautify &amp; JS CSS Minifier<br>前者负责美化、后者负责压缩，都是我觉得比较好用的。</li>
-                                            <li>
-                                                <p>JSHint &amp; JSHint Configurator<br>文档检查插件，我觉得比自带的 JSLint 要好用。后边那个是在文档中自定义语法规则的。在这里多说一句，屏蔽自带的 JSLint 是在 brackets.json 里边加上</p>
-                                                <figure class="highlight javascript">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line"><span class="string">"language"</span>: &#123;</span><br><span class="line">    <span class="string">"javascript"</span>: &#123;</span><br><span class="line">        <span class="string">"linting.prefer"</span>: [<span class="string">"JSHint"</span>],</span><br><span class="line">        <span class="string">"linting.usePreferredOnly"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                                <p>这一句，然后保存重启 Brackets 就行了。</p>
-                                            </li>
+                                            <li>JSHint &amp; JSHint Configurator<br>文档检查插件，我觉得比自带的 JSLint 要好用。后边那个是在文档中自定义语法规则的。在这里多说一句，屏蔽自带的 JSLint 是在 brackets.json 里边加上
+                                                <pre class=" language-javascript"><code class="language-javascript"><span class="token string">"language"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"javascript"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"linting.prefer"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"JSHint"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"linting.usePreferredOnly"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> 这一句，然后保存重启 Brackets 就行了。</li>
                                             <li>Autoprefixer<br>PostCSS 的神器，专门用来给 CSS 加各种前缀的。</li>
                                         </ol>
                                         <p>反正常用的就是这些了，还有哪些好用的欢迎推荐~~</p>
@@ -282,7 +273,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

@@ -79,42 +79,41 @@
     </script>
     <title>搭建私有Docker Registry以及推送镜像 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2019/01/23/搭建私有Docker-Registry以及推送镜像/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -198,42 +197,25 @@
                                             <li>首先需要生成连接用的用户名密码，用htpasswd。<br>安装直接<code>yum install -y httpd-tools</code>，然后<code>htpasswd -cB /home/.passwd hahahaha</code></li>
                                             <li>或者上边也可以直接用registry镜像中的htpasswd代替，<br>使用<code>docker run --entrypoint htpasswd registry -Bbn \[用户名] \[密码] &gt;&gt; /etc/docker/auth/registry.htpasswd</code>来生成</li>
                                             <li>用户名hahahaha，密码Haha123，服务搭在公网88.88.88.88主机上，端口19527</li>
-                                            <li>
-                                                <p>构建指令：</p>
-                                                <figure class="highlight bash">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line">docker run -d -p 9527:5000 --name registry --restart=always \\</span><br><span class="line">-v /etc/docker/registry:/var/lib/registry \\</span><br><span class="line">-v /etc/docker/auth:/auth \\</span><br><span class="line">-e REGISTRY_AUTH=htpasswd \\</span><br><span class="line">-e REGISTRY_AUTH_HTPASSWD_REALM=<span class="string">"Registry Realm"</span> \\</span><br><span class="line">-e REGISTRY_AUTH_HTPASSWD_PATH=/auth/passwd \\</span><br><span class="line">registry</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
+                                            <li>构建指令：
+                                                <pre class=" language-bash"><code class="language-bash">docker run -d -p 9527:5000 --name registry --restart<span class="token operator">=</span>always \\
+-v /etc/docker/registry:/var/lib/registry \\
+-v /etc/docker/auth:/auth \\
+-e REGISTRY_AUTH<span class="token operator">=</span>htpasswd \\
+-e REGISTRY_AUTH_HTPASSWD_REALM<span class="token operator">=</span><span class="token string">"Registry Realm"</span> \\
+-e REGISTRY_AUTH_HTPASSWD_PATH<span class="token operator">=</span>/auth/passwd \\
+registry
+</code></pre>
                                             </li>
-                                            <li>
-                                                <p>详细教程可以参考：<a href="https://www.yanning.wang/archives/599.html" target="_blank" rel="noopener">Docker私有Registry搭建教程</a></p>
+                                            <li>详细教程可以参考：<a href="https://www.yanning.wang/archives/599.html" target="_blank" rel="noopener">Docker私有Registry搭建教程</a></li>
+                                            <li>/etc/docker/daemon.json文件中的内容建议改为：
+                                                <pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+ <span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://registry.docker-cn.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ <span class="token property">"insecure-registries"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"88.88.88.88:9527"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
                                             </li>
-                                            <li>
-                                                <p>/etc/docker/daemon.json文件中的内容建议改为：</p>
-                                                <figure class="highlight json">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>],</span><br><span class="line">  <span class="attr">"insecure-registries"</span>: [<span class="string">"88.88.88.88:9527"</span>]</span><br><span class="line">&#125;</span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
-                                            </li>
-                                            <li>
-                                                <p>PUSH镜像前，需新增镜像Tag，用<code>docker tag</code>命令将其转成<code>URL[:PORT]/REPO:TAG</code>这种格式，比如用：<code>docker tag hahahaha/admin-test:develop 88.88.88.88:9527/hahahaha/admin-test:develop</code>命令代表准备将 hahahaha/admin-test 镜像推到 88.88.88.88:9527</p>
-                                            </li>
+                                            <li>PUSH镜像前，需新增镜像Tag，用<code>docker tag</code>命令将其转成<code>URL[:PORT]/REPO:TAG</code>这种格式，比如用：<code>docker tag hahahaha/admin-test:develop 88.88.88.88:9527/hahahaha/admin-test:develop</code>命令代表准备将 hahahaha/admin-test 镜像推到 88.88.88.88:9527</li>
                                             <li>然后用<code>docker login</code>登录</li>
                                             <li>接着用<code>docker push 88.88.88.88:9527/hahahaha/admin-test:develop</code>直接推就行</li>
                                             <li>推完以后打开浏览器，输入<code>http://88.88.88.88:9527/v2/</code>登录一下，然后再打开<code>http://88.88.88.88:9527/v2/_catalog</code>就能看到刚推上去的镜像了。（Docker Registry HTTP API V2）</li>
@@ -305,7 +287,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

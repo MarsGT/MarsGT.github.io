@@ -79,42 +79,41 @@
     </script>
     <title>搭建带有Web管理功能的私有Docker Registry | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2019/01/23/搭建带有Web管理功能的私有Docker-Registry/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/开发工具/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -200,22 +199,36 @@
                                             <li>为了配置方便，关掉了用户名密码功能，改为使用阿里云安全组直接限制80端口的入方向IP(外网为固定IP或者从某一固定IP代理)</li>
                                             <li>
                                                 <p>使用Docker-Compose编排，配置文件：</p>
-                                                <figure class="highlight yaml">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="gutter">
-                                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
-                                                            </td>
-                                                            <td class="code">
-                                                                <pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  registry-srv:</span></span><br><span class="line"><span class="attr">  image:</span> <span class="attr">registry:2.4</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"9527:5000"</span></span><br><span class="line"><span class="attr">  volumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/var/lib/docker/registry:/var/lib/registry</span></span><br><span class="line"><span class="attr">  environment:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">REGISTRY_STORAGE_DELETE_ENABLED=true</span></span><br><span class="line"><span class="attr">  restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  registry-web:</span></span><br><span class="line"><span class="attr">  image:</span> <span class="string">hyper/docker-registry-web</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"29527:8080"</span></span><br><span class="line"><span class="attr">  volumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/var/lib/docker/registry/web:/data</span></span><br><span class="line"><span class="attr">  environment:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">REGISTRY_URL=http://172.19.0.1:9527/v2</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">REGISTRY_NAME=registry.hahahaha.com</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">REGISTRY_READONLY=false</span></span><br><span class="line"><span class="attr">  restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">  depends_on:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">registry-srv</span></span><br></pre>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </figure>
+                                                <pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+ <span class="token key atrule">registry-srv</span><span class="token punctuation">:</span>
+ <span class="token key atrule">image</span><span class="token punctuation">:</span> registry<span class="token punctuation">:</span><span class="token number">2.4</span>
+ <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> <span class="token string">"9527:5000"</span>
+ <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> /var/lib/docker/registry<span class="token punctuation">:</span>/var/lib/registry
+ <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/var/lib/registry
+   <span class="token punctuation">-</span> REGISTRY_STORAGE_DELETE_ENABLED=true
+ <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+ <span class="token key atrule">registry-web</span><span class="token punctuation">:</span>
+ <span class="token key atrule">image</span><span class="token punctuation">:</span> hyper/docker<span class="token punctuation">-</span>registry<span class="token punctuation">-</span>web
+ <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> <span class="token string">"29527:8080"</span>
+ <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> /var/lib/docker/registry/web<span class="token punctuation">:</span>/data
+ <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> REGISTRY_URL=http<span class="token punctuation">:</span>//172.19.0.1<span class="token punctuation">:</span>9527/v2
+   <span class="token punctuation">-</span> REGISTRY_NAME=registry.hahahaha.com
+   <span class="token punctuation">-</span> REGISTRY_READONLY=false
+ <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+ <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> registry<span class="token punctuation">-</span>srv
+</code></pre>
                                             </li>
-                                            <li>
-                                                <p>registry-srv是私有Docker Registry服务，用的是简配（没上配置文件，只映射了部分环境变量和容器存储位置。把环境变量的“REGISTRY”前缀去掉，改成小写再把下划线改写成层级，就是YAML配置）；registry-web是Web界面服务，registry.hahahaha.com的DNS解析和阿里云安全组需要配置下，环境变量里“REGISTRYURL”是需要连接到的私有Docker Registry服务，这里的172.x.0.1的地址是和容器同网段的宿主机地址（不要用URL，访问不了；也不要用localhost，容器内的localhost不会指向宿主机）</p>
-                                            </li>
+                                            <li>registry-srv是私有Docker Registry服务，用的是简配（没上配置文件，只映射了部分环境变量和容器存储位置。把环境变量的“REGISTRY”前缀去掉，改成小写再把下划线改写成层级，就是YAML配置）；registry-web是Web界面服务，registry.hahahaha.com的DNS解析和阿里云安全组需要配置下，环境变量里“REGISTRYURL”是需要连接到的私有Docker Registry服务，这里的172.x.0.1的地址是和容器同网段的宿主机地址（不要用URL，访问不了；也不要用localhost，容器内的localhost不会指向宿主机）</li>
                                             <li>然后需要配一下Nginx的反代。分别发到上文的9527和29527端口即可。</li>
                                             <li>在Docker-Compose配置文件使用<code>docker-compose up -d</code>命令拉起服务，然后用<code>docker-compose logs -f</code>命令监控，直到出来“Server startup……”等内容时，<code>nginx -s reload</code>，然后访问registry.hahahaha.com就能看到管理界面了。</li>
                                         </ol>
@@ -286,7 +299,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

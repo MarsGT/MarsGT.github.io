@@ -79,42 +79,41 @@
     </script>
     <title>在NexT主题下添加Gitalk的简单记录 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/12/29/在NexT主题下添加Gitalk的简单记录/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -192,34 +191,47 @@
                                         <p>简单记录下如何在NexT主题下添加Gitalk评论插件。 <a id="more"></a>
                                         </p>
                                         <p><a href="https://gitalk.github.io/" target="_blank" rel="noopener">Gitalk</a>是一个基于GitHub Issue的评论插件，优点是可以利用GitHub Pages自带的issue来做评论功能，相对一些NexT主题自带的评论插件来说，因为不用去注册第三方平台帐号，也不用做域名备案（连域名都没😂……还要啥🚲啊），所以更加简便易行。</p>
-                                        <p>好，下边直接说步骤吧：<br>首先，要去申请个<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">GitHub Application</a>，用来授权给Gitalk插件读取和写入GitHub Pages项目issue内容。Homepage URL和Authorization callback URL就写成博客地址就行，Authorization name和Authorization description随便写就可以。填好提交之后会生成一个Client ID和Client Secret，内容复制备用；<br>接下来，找到NexT主题目录下的<code>layout\_custom\sidebar.swig</code>这个文件，在其中加入：<br>
-                                            <figure class="highlight plain">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">&#123;% if page.comments and config.gitalk.enable %&#125;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;&#123;&#123; config.gitalk.gitalk_css &#125;&#125;&quot;&gt;</span><br><span class="line">    &lt;script src=&quot;&#123;&#123; config.gitalk.gitalk_js &#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;&#123;&#123; config.gitalk.md5 &#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var gitalk = new Gitalk(&#123;</span><br><span class="line">            clientID: &apos;&#123;&#123; config.gitalk.clientID &#125;&#125;&apos;,</span><br><span class="line">            clientSecret: &apos;&#123;&#123; config.gitalk.clientSecret &#125;&#125;&apos;,</span><br><span class="line">            repo: &apos;&#123;&#123; config.gitalk.repo &#125;&#125;&apos;,</span><br><span class="line">            owner: &apos;&#123;&#123; config.gitalk.owner &#125;&#125;&apos;,</span><br><span class="line">            admin: &apos;&#123;&#123; config.gitalk.admin &#125;&#125;&apos;,</span><br><span class="line">            id: md5(location.pathname),</span><br><span class="line">            distractionFreeMode: &apos;true&apos;,</span><br><span class="line">            pagerDirection: &apos;first&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">        var div = document.createElement(&apos;div&apos;);</span><br><span class="line">        div.setAttribute(&quot;id&quot;, &quot;gitalk_comments&quot;);</span><br><span class="line">        div.setAttribute(&quot;class&quot;, &quot;post-nav&quot;);</span><br><span class="line">        var bro = document.getElementById(&apos;posts&apos;).getElementsByTagName(&apos;article&apos;);</span><br><span class="line">        bro = bro[0].getElementsByClassName(&apos;post-block&apos;);</span><br><span class="line">        bro = bro[0].getElementsByTagName(&apos;footer&apos;);</span><br><span class="line">        bro = bro[0];</span><br><span class="line">        bro.appendChild(div);</span><br><span class="line">        gitalk.render(&apos;gitalk_comments&apos;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>然后找到Hexo全局<code>_config.yml</code>配置文件，在其中加入：<br>
-                                            <figure class="highlight yaml">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="comment"># Gitalk评论</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    owner:</span> <span class="comment">#Github用户名#</span></span><br><span class="line"><span class="attr">    admin:</span> <span class="comment">#Github用户名#</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="comment">#Github Pages项目名#</span></span><br><span class="line"><span class="attr">    clientID:</span> <span class="comment">#clientID#</span></span><br><span class="line"><span class="attr">    clientSecret:</span> <span class="comment">#clientSecret#</span></span><br><span class="line"><span class="attr">    gitalk_css:</span> <span class="string">//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css</span></span><br><span class="line"><span class="attr">    gitalk_js:</span> <span class="string">//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js</span></span><br><span class="line"><span class="attr">    md5:</span> <span class="string">//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js</span></span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <p>好，下边直接说步骤吧：<br>首先，要去申请个<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">GitHub Application</a>，用来授权给Gitalk插件读取和写入GitHub Pages项目issue内容。Homepage URL和Authorization callback URL就写成博客地址就行，Authorization name和Authorization description随便写就可以。填好提交之后会生成一个Client ID和Client Secret，内容复制备用；<br>接下来，找到NexT主题目录下的<code>layout\_custom\sidebar.swig</code>这个文件，在其中加入：</p>
+                                        <pre class=" language-swig"><code class="language-swig">{% if page.comments and config.gitalk.enable %}
+    <link rel="stylesheet" href="{{ config.gitalk.gitalk_css }}">
+    <script src="{{ config.gitalk.gitalk_js }}"></script>
+    <script src="{{ config.gitalk.md5 }}"></script>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: '{{ config.gitalk.clientID }}',
+            clientSecret: '{{ config.gitalk.clientSecret }}',
+            repo: '{{ config.gitalk.repo }}',
+            owner: '{{ config.gitalk.owner }}',
+            admin: '{{ config.gitalk.admin }}',
+            id: md5(location.pathname),
+            distractionFreeMode: 'true',
+            pagerDirection: 'first'
+        });
+        var div = document.createElement('div');
+        div.setAttribute("id", "gitalk_comments");
+        div.setAttribute("class", "post-nav");
+        var bro = document.getElementById('posts').getElementsByTagName('article');
+        bro = bro[0].getElementsByClassName('post-block');
+        bro = bro[0].getElementsByTagName('footer');
+        bro = bro[0];
+        bro.appendChild(div);
+        gitalk.render('gitalk_comments');
+    </script>
+{% endif %}
+</code></pre>
+                                        <p>然后找到Hexo全局<code>_config.yml</code>配置文件，在其中加入：</p>
+                                        <pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Gitalk评论</span>
+<span class="token key atrule">gitalk</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">owner</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#Github用户名#</span>
+    <span class="token key atrule">admin</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#Github用户名#</span>
+    <span class="token key atrule">repo</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#Github Pages项目名#</span>
+    <span class="token key atrule">clientID</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#clientID#</span>
+    <span class="token key atrule">clientSecret</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#clientSecret#</span>
+    <span class="token key atrule">gitalk_css</span><span class="token punctuation">:</span> //cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css
+    <span class="token key atrule">gitalk_js</span><span class="token punctuation">:</span> //cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js
+    <span class="token key atrule">md5</span><span class="token punctuation">:</span> //cdn.bootcss.com/blueimp<span class="token punctuation">-</span>md5/2.10.0/js/md5.min.js
+</code></pre>
                                         <p>最后<code>hexo clean</code>清下缓存，再<code>hexo g</code>重新生成就可以了。</p>
                                         <hr>
                                         <p>写这篇文章的时候，才发现我所用的NexT主题版本中已经集成了gitalk，用的是<a href="https://asdfv1929.github.io/2018/01/20/gitalk/" target="_blank" rel="noopener">Hexo NexT主题中集成gitalk评论系统</a>中的方案，所以在NexT主题下的<code>_config.yml</code>配置文件中的gitalk相应配置项填一下就能开启了。不过需要注意的是这个版本没用<code>pagerDirection</code>这个配置项，如果需要的话在NexT主题的<code>layout\_third-party\comments\gitalk.swig</code>文件中line:30加个<code>,pagerDirection: </code>然后在配置里加一行<code>pager_direction</code>的配置就行了。</p>
@@ -289,7 +301,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

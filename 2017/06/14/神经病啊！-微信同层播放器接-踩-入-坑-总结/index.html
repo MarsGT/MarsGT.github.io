@@ -64,7 +64,7 @@
      “神经病啊！”
  
  而微信也终于出了个《H5同层播放器接入规范》，算是正常点了……">
-    <meta name="keywords" content="JavaScript,微信,视频,HTML">
+    <meta name="keywords" content="JavaScript,微信,HTML,视频">
     <meta property="og:type" content="article">
     <meta property="og:title" content="神经病啊！--微信同层播放器接(踩)入(坑)总结">
     <meta property="og:url" content="https://marsgt.github.io/2017/06/14/神经病啊！-微信同层播放器接-踩-入-坑-总结/index.html">
@@ -91,42 +91,41 @@
     </script>
     <title>神经病啊！--微信同层播放器接(踩)入(坑)总结 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -169,15 +168,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2017/06/14/神经病啊！-微信同层播放器接-踩-入-坑-总结/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -196,7 +195,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -230,20 +229,13 @@
                                         <h3 id="3-视频封面"><a href="#3-视频封面" class="headerlink" title="3. 视频封面"></a>3. 视频封面</h3>
                                         <p><code>&lt;video&gt;</code>标签里有一个与视频封面相关的属性<code>poster</code>，但是在使用中发现性能存在一些问题，在Android端打开视频时（加载），会有跳动的感觉，但是如果去掉，在视频加载时（<code>preload</code>取值<code>&#39;auto&#39;</code>，且未用预加载）则会显示空白页面。目前换用了背景图片的方式，但由于视频全屏播放时顶部会有空隙，所以额外加了个<code>background-position: bottom;</code>以及<code>background-size: contain;</code>（取值和视频保持一致），这样设置好的背景在播放视频时就不会漏边了。</p>
                                         <h3 id="4-设置视频视口大小"><a href="#4-设置视频视口大小" class="headerlink" title="4. 设置视频视口大小"></a>4. 设置视频视口大小</h3>
-                                        <p>同层接入规范里推荐在resize事件回调里设置视频视口大小，我习惯直接设置<code>&lt;video&gt;</code>标签的<code>width</code>和<code>height</code>，所以在resize回调里加入：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">$(<span class="string">'video'</span>)</span><br><span class="line">    .attr(&#123;</span><br><span class="line">        <span class="string">'width'</span>: <span class="built_in">window</span>.innerWidth + <span class="string">'px'</span>,</span><br><span class="line">        <span class="string">'height'</span>: <span class="built_in">window</span>.innerHeight + <span class="string">'px'</span></span><br><span class="line">    &#125;);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <p>同层接入规范里推荐在resize事件回调里设置视频视口大小，我习惯直接设置<code>&lt;video&gt;</code>标签的<code>width</code>和<code>height</code>，所以在resize回调里加入：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'video'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string">'width'</span><span class="token punctuation">:</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">,</span>
+        <span class="token string">'height'</span><span class="token punctuation">:</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">+</span> <span class="token string">'px'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>就可以了。</p>
                                         <h3 id="5-UA特性探测"><a href="#5-UA特性探测" class="headerlink" title="5. UA特性探测"></a>5. UA特性探测</h3>
                                         <p>同层接入规范里给的，判断是否是同层播放器方法：</p>
@@ -304,8 +296,8 @@
                                         <div class="post-tags">
                                             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
                                             <a href="/tags/微信/" rel="tag"># 微信</a>
-                                            <a href="/tags/视频/" rel="tag"># 视频</a>
                                             <a href="/tags/HTML/" rel="tag"># HTML</a>
+                                            <a href="/tags/视频/" rel="tag"># 视频</a>
                                         </div>
                                         <div class="post-nav">
                                             <div class="post-nav-next post-nav-item">
@@ -341,7 +333,7 @@
                         </ul>
                         <section class="site-overview-wrap sidebar-panel">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

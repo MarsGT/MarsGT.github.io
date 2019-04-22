@@ -82,42 +82,41 @@
     </script>
     <title>PHP上的SQLite初体验 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -160,15 +159,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2018/12/20/PHP上的SQLite初体验/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -187,7 +186,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/后端/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -230,48 +229,68 @@
                                         <p>好，到这时，就可以到SQLiteStudio中实践一下了。打开软件，找到”Database-&gt;Add a database”，类型选SQLite3就可以，点绿加号选择文件的保存位置，下边的Name其实是在左侧列表中显示的名字，点确定就可以了。<br>一开始还没建表，所以一片灰什么都没……右击”Tables”选择”Create a table”，打开列表设计页，输入”Table name”之后就可以建表了。双击空白处打开字段编辑框，然后按一般套路去搞就行了。这里我需要提交的表单信息很少，所以除了必要的姓名手机号以外，就多建了个id(多说一句，勾上主键点开配置，勾上”Autoincrement”就是自增)。</p>
                                         <p>插一句，在折腾的过程中又发现了一个GUI程序DB Browser for SQLite，体验比SQLiteStudio好太多：<br><img src="/images/1005972504-5971f5422fd39.png" alt="DB Browser for SQLite"><br>DB Browser很符合我心目中对数据库浏览器的要求：足够简单(就SQLite而言)、界面友好(全中文覆盖完全)、功能实际(有个细节，在新建字段时，默认只提供<code>INTEGER</code>、<code>TEXT</code>、<code>NONE</code>、<code>REAL</code>、<code>NUMERIC</code>这5种，起码在我看来这降低了复杂度，且符合原有设计)，所以建议换这个。</p>
                                         <hr>
-                                        <p>表设计的差不多，就可以开搞PHP这边了。<br>数据库操作选择了用PDO来实现，因为之前写过……PDO的好处就是对于实现了驱动的数据库，换个DSN就行了，后边再用SQL指令、事务操作什么的都是通用的。所以有：<br>
-                                            <figure class="highlight php">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header(<span class="string">'content-type: text/html;charset=utf-8'</span>);</span><br><span class="line">header(<span class="string">'Cache-Control: no-cache'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $pdo = <span class="keyword">new</span> PDO(<span class="string">'sqlite:../data/test.db'</span>); <span class="comment">// 指向数据库文件</span></span><br><span class="line">    $pdo-&gt;exec(<span class="string">'set names utf8'</span>); <span class="comment">// 设置操作编码</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); <span class="comment">// 遇错误抛出异常</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOExceiption $e) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'ERROR!'</span>);</span><br><span class="line">&#125;</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>当然这只是完成了最基本的功能：连接，如果没有错误发生的话，它连报错也不会。所以在后边，需要加一点SQL语句进去，鉴于我的需求主要是写入数据，所以我们需要在这里加上预处理语句。什么是预处理语句呢？可以把它看作是想要运行的SQL的一种编译过的模板，它可以使用变量参数进行定制。<br>那么接下来：<br>
-                                            <figure class="highlight php">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header(<span class="string">'content-type: text/html;charset=utf-8'</span>);</span><br><span class="line">header(<span class="string">'Cache-Control: no-cache'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $pdo = <span class="keyword">new</span> PDO(<span class="string">'sqlite:../data/test.db'</span>); <span class="comment">// 指向数据库文件</span></span><br><span class="line">    $pdo-&gt;exec(<span class="string">'set names utf8'</span>); <span class="comment">// 设置操作编码</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); <span class="comment">// 遇错误抛出异常</span></span><br><span class="line"></span><br><span class="line">    $sql = <span class="string">'INSERT INTO user (user, phone, city) VALUES (:user, :phone, :city)'</span>; <span class="comment">// 这里用的是冒号式的具名占位符，也可以用`?`来做匿名占位符，下边绑定时改用数字序号就行</span></span><br><span class="line"></span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':user'</span>, $user); <span class="comment">//绑定占位符对应的值</span></span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':phone'</span>, $phone);</span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':city'</span>, $city);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOExceiption $e) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'ERROR!'</span>);</span><br><span class="line">&#125;</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>到这里，前边的代码基本能跑了。但是可以留意到错误处理这块还是很简陋，没有error信息也没有留下log，那么把这里完善一下：<br>
-                                            <figure class="highlight php">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header(<span class="string">'content-type: text/html;charset=utf-8'</span>);</span><br><span class="line">header(<span class="string">'Cache-Control: no-cache'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $pdo = <span class="keyword">new</span> PDO(<span class="string">'sqlite:../data/test.db'</span>); <span class="comment">// 指向数据库文件</span></span><br><span class="line">    $pdo-&gt;exec(<span class="string">'set names utf8'</span>); <span class="comment">// 设置操作编码</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); <span class="comment">// 遇错误抛出异常</span></span><br><span class="line"></span><br><span class="line">    $sql = <span class="string">'INSERT INTO user (user, phone, city) VALUES (:user, :phone, :city)'</span>; <span class="comment">// 这里用的是冒号式的具名占位符，也可以用`?`来做匿名占位符，下边绑定时改用数字序号就行</span></span><br><span class="line"></span><br><span class="line">    $stmt = $pdo-&gt;prepare($sql);</span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':user'</span>, $user); <span class="comment">//绑定占位符对应的值</span></span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':phone'</span>, $phone);</span><br><span class="line">    $stmt-&gt;bindParam(<span class="string">':city'</span>, $city);</span><br><span class="line">    $stmt-&gt;execute();</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOExceiption $e) &#123;</span><br><span class="line">    $now = date(<span class="string">'Y-m-d H:m:s'</span>);</span><br><span class="line">    $msg = <span class="string">'[time]['</span> . $now . <span class="string">'][msg]['</span> . $e-&gt;getMessage() . <span class="string">']'</span> . <span class="string">"\n"</span>;</span><br><span class="line">    error_log($msg, <span class="number">3</span>, <span class="string">'../log/error.log'</span>);</span><br><span class="line">&#125;</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <p>表设计的差不多，就可以开搞PHP这边了。<br>数据库操作选择了用PDO来实现，因为之前写过……PDO的好处就是对于实现了驱动的数据库，换个DSN就行了，后边再用SQL指令、事务操作什么的都是通用的。所以有：</p>
+                                        <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-type: text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Cache-Control: no-cache'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token variable">$pdo</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PDO</span><span class="token punctuation">(</span><span class="token string">'sqlite:../data/test.db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 指向数据库文件</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'set names utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置操作编码</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ATTR_ERRMODE</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ERRMODE_EXCEPTION</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 遇错误抛出异常</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">PDOExceiption</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'ERROR!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                                        <p>当然这只是完成了最基本的功能：连接，如果没有错误发生的话，它连报错也不会。所以在后边，需要加一点SQL语句进去，鉴于我的需求主要是写入数据，所以我们需要在这里加上预处理语句。什么是预处理语句呢？可以把它看作是想要运行的SQL的一种编译过的模板，它可以使用变量参数进行定制。<br>那么接下来：</p>
+                                        <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-type: text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Cache-Control: no-cache'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token variable">$pdo</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PDO</span><span class="token punctuation">(</span><span class="token string">'sqlite:../data/test.db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 指向数据库文件</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'set names utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置操作编码</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ATTR_ERRMODE</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ERRMODE_EXCEPTION</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 遇错误抛出异常</span>
+
+    <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">'INSERT INTO user (user, phone, city) VALUES (:user, :phone, :city)'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这里用的是冒号式的具名占位符，也可以用`?`来做匿名占位符，下边绑定时改用数字序号就行</span>
+
+    <span class="token variable">$stmt</span> <span class="token operator">=</span> <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//绑定占位符对应的值</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':phone'</span><span class="token punctuation">,</span> <span class="token variable">$phone</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':city'</span><span class="token punctuation">,</span> <span class="token variable">$city</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">PDOExceiption</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token string">'ERROR!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                                        <p>到这里，前边的代码基本能跑了。但是可以留意到错误处理这块还是很简陋，没有error信息也没有留下log，那么把这里完善一下：</p>
+                                        <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-type: text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Cache-Control: no-cache'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token variable">$pdo</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PDO</span><span class="token punctuation">(</span><span class="token string">'sqlite:../data/test.db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 指向数据库文件</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'set names utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置操作编码</span>
+    <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ATTR_ERRMODE</span><span class="token punctuation">,</span> <span class="token constant">PDO</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">ERRMODE_EXCEPTION</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 遇错误抛出异常</span>
+
+    <span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string">'INSERT INTO user (user, phone, city) VALUES (:user, :phone, :city)'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 这里用的是冒号式的具名占位符，也可以用`?`来做匿名占位符，下边绑定时改用数字序号就行</span>
+
+    <span class="token variable">$stmt</span> <span class="token operator">=</span> <span class="token variable">$pdo</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':user'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//绑定占位符对应的值</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':phone'</span><span class="token punctuation">,</span> <span class="token variable">$phone</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bindParam</span><span class="token punctuation">(</span><span class="token string">':city'</span><span class="token punctuation">,</span> <span class="token variable">$city</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">PDOExceiption</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$now</span> <span class="token operator">=</span> <span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'Y-m-d H:m:s'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token string">'[time]['</span> <span class="token punctuation">.</span> <span class="token variable">$now</span> <span class="token punctuation">.</span> <span class="token string">'][msg]['</span> <span class="token punctuation">.</span> <span class="token variable">$e</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">']'</span> <span class="token punctuation">.</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    <span class="token function">error_log</span><span class="token punctuation">(</span><span class="token variable">$msg</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'../log/error.log'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
                                         <p>那么到了这里，这段代码基本就算能开跑了。当然还是建议根据需要加上<code>return</code>语句，这里不多赘述。</p>
                                     </div>
                                     <div>
@@ -340,7 +359,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

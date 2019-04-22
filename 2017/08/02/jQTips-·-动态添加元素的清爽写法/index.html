@@ -79,42 +79,41 @@
     </script>
     <title>jQTips · 动态添加元素的清爽写法 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2017/08/02/jQTips-·-动态添加元素的清爽写法/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,95 +183,64 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
                                             </span>
                                         </div>
                                     </header>
                                     <div class="post-body han-init-context" itemprop="articleBody">
                                         <p>在写动态添加元素时，一般比较常见的写法都是 <a id="more"></a>这个样子的：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">var</span> newClass = <span class="string">'newDiv'</span>;</span><br><span class="line"><span class="keyword">var</span> newText = <span class="string">'Demo!'</span>;</span><br><span class="line"><span class="keyword">var</span> newBody = $(<span class="string">'&lt;div class="'</span> + newClass + <span class="string">'"&gt;'</span> + newText + <span class="string">'&lt;/div&gt;'</span>);</span><br><span class="line">$(<span class="string">'body'</span>).append(newBody);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
-                                        <p>如果还需要事件呢，那么就在前边加个事件委托：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.newDiv'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'Click Me!'</span>);</span><br><span class="line">&#125;);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> newClass <span class="token operator">=</span> <span class="token string">'newDiv'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newText <span class="token operator">=</span> <span class="token string">'Demo!'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newBody <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="'</span> <span class="token operator">+</span> newClass <span class="token operator">+</span> <span class="token string">'">'</span> <span class="token operator">+</span> newText <span class="token operator">+</span> <span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>newBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                        <p>如果还需要事件呢，那么就在前边加个事件委托：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token string">'.newDiv'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'Click Me!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>但其实呢，这里可以还使用jQuery对象的包装语法，通过查询文档呢我们知道它的语法是<code>jQuery( html, attributes )</code>，在<code>html</code>参数这里，我们可以使用一个（不含任何属性的）单标签，就是类似于<code>&quot;&lt;div /&gt;&quot;</code>、<code>&quot;&lt;div&gt;&quot;</code>以及<code>&quot;&lt;div&gt;&lt;/div&gt;&quot;</code>这几种类型的标签，它和前边一大长串字符串那种的区别在于：前者会用<code>innerHTML</code>实现；而后者则是调用<code>.createElement()</code>实现的。</p>
-                                        <p>看到这里你可能会问，如果前边用了单标签，那里边这堆<code>class</code>啊还有内容啥的该咋办？答案就在第二个参数<code>attributes</code>上。<code>attributes</code>参数是一个对象，里边放的是第一个参数、也就是单标签里的属性，简单来说你可以将它等同于<code>.attr(attributes)</code>来用，并且，它还能综合<code>.val()</code>、<code>.css()</code>、<code>.html()</code>、<code>.text()</code>、<code>.data()</code>、<code>.width()</code>、<code>.height()</code>、<code>.offset()</code>之类的功能，比如第一段代码就可以改写成：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="keyword">var</span> newClass = <span class="string">'newDiv'</span>;</span><br><span class="line"><span class="keyword">var</span> newText = <span class="string">'Demo!'</span>;</span><br><span class="line">$(<span class="string">'&lt;div&gt;'</span>, &#123;</span><br><span class="line">    <span class="string">'class'</span>: newClass, <span class="comment">//和.attr()一样，由于class是保留字所以要强制加引号</span></span><br><span class="line">    text: newText</span><br><span class="line">&#125;).appendTo(<span class="string">'body'</span>);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>而绑定事件也可以一并写进去，比如带有简写（即<code>.click()</code>）调用的click就可以这样写：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="keyword">var</span> newClass = <span class="string">'newDiv'</span>;</span><br><span class="line"><span class="keyword">var</span> newText = <span class="string">'Demo!'</span>;</span><br><span class="line">$(<span class="string">'&lt;div&gt;'</span>, &#123;</span><br><span class="line">    <span class="string">'class'</span>: newClass,</span><br><span class="line">    text: newText,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">'Click Me!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).appendTo(<span class="string">'body'</span>);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>当然也可以写成：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line"><span class="keyword">var</span> newClass = <span class="string">'newDiv'</span>;</span><br><span class="line"><span class="keyword">var</span> newText = <span class="string">'Demo!'</span>;</span><br><span class="line">$(<span class="string">'&lt;div&gt;'</span>, &#123;</span><br><span class="line">    <span class="string">'class'</span>: newClass,</span><br><span class="line">    text: newText,</span><br><span class="line">    on: &#123;</span><br><span class="line">        click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.info(<span class="string">'Click Me!'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).appendTo(<span class="string">'body'</span>);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
-                                        <p>如果为一堆变量名命名发愁，也可以完全不用变量，变成：<br>
-                                            <figure class="highlight javascript">
-                                                <table>
-                                                    <tr>
-                                                        <td class="gutter">
-                                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
-                                                        </td>
-                                                        <td class="code">
-                                                            <pre><span class="line">$(<span class="string">'&lt;div&gt;'</span>, &#123;</span><br><span class="line">    <span class="string">'class'</span>: <span class="string">'newDiv'</span>,</span><br><span class="line">    text: <span class="string">'Demo!'</span>,</span><br><span class="line">    click: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.info(<span class="string">'Click Me!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).appendTo(<span class="string">'body'</span>);</span><br></pre>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </figure>
-                                        </p>
+                                        <p>看到这里你可能会问，如果前边用了单标签，那里边这堆<code>class</code>啊还有内容啥的该咋办？答案就在第二个参数<code>attributes</code>上。<code>attributes</code>参数是一个对象，里边放的是第一个参数、也就是单标签里的属性，简单来说你可以将它等同于<code>.attr(attributes)</code>来用，并且，它还能综合<code>.val()</code>、<code>.css()</code>、<code>.html()</code>、<code>.text()</code>、<code>.data()</code>、<code>.width()</code>、<code>.height()</code>、<code>.offset()</code>之类的功能，比如第一段代码就可以改写成：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> newClass <span class="token operator">=</span> <span class="token string">'newDiv'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newText <span class="token operator">=</span> <span class="token string">'Demo!'</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div>'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">'class'</span><span class="token punctuation">:</span> newClass<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//和.attr()一样，由于class是保留字所以要强制加引号</span>
+    text<span class="token punctuation">:</span> newText
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                        <p>而绑定事件也可以一并写进去，比如带有简写（即<code>.click()</code>）调用的click就可以这样写：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> newClass <span class="token operator">=</span> <span class="token string">'newDiv'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newText <span class="token operator">=</span> <span class="token string">'Demo!'</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div>'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">'class'</span><span class="token punctuation">:</span> newClass<span class="token punctuation">,</span>
+    text<span class="token punctuation">:</span> newText<span class="token punctuation">,</span>
+    click<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'Click Me!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                        <p>当然也可以写成：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> newClass <span class="token operator">=</span> <span class="token string">'newDiv'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newText <span class="token operator">=</span> <span class="token string">'Demo!'</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div>'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">'class'</span><span class="token punctuation">:</span> newClass<span class="token punctuation">,</span>
+    text<span class="token punctuation">:</span> newText<span class="token punctuation">,</span>
+    on<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        click<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'Click Me!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+                                        <p>如果为一堆变量名命名发愁，也可以完全不用变量，变成：</p>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div>'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">'class'</span><span class="token punctuation">:</span> <span class="token string">'newDiv'</span><span class="token punctuation">,</span>
+    text<span class="token punctuation">:</span> <span class="token string">'Demo!'</span><span class="token punctuation">,</span>
+    click<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'Click Me!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>看起来有没有比苦逼的字符串拼接清爽许多呢？</p>
                                     </div>
                                     <div>
@@ -340,7 +308,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>

@@ -79,42 +79,41 @@
     </script>
     <title>随手记 - 疯狂触发滚轮事件的Mac触控板 | 某熊猫桑·自留地</title>
     <noscript>
-        <style>
-            .use-motion .motion-element,
-            .use-motion .brand,
-            .use-motion .menu-item,
-            .sidebar-inner,
-            .use-motion .post-block,
-            .use-motion .pagination,
-            .use-motion .comments,
-            .use-motion .post-header,
-            .use-motion .post-body,
-            .use-motion .collection-title {
-                opacity: initial;
-            }
+        <style> .use-motion .motion-element,
+        .use-motion .brand,
+        .use-motion .menu-item,
+        .sidebar-inner,
+        .use-motion .post-block,
+        .use-motion .pagination,
+        .use-motion .comments,
+        .use-motion .post-header,
+        .use-motion .post-body,
+        .use-motion .collection-title {
+            opacity: initial;
+        }
 
-            .use-motion .logo,
-            .use-motion .site-title,
-            .use-motion .site-subtitle {
-                opacity: initial;
-                top: initial;
-            }
+        .use-motion .logo,
+        .use-motion .site-title,
+        .use-motion .site-subtitle {
+            opacity: initial;
+            top: initial;
+        }
 
-            .use-motion .logo-line-before i {
-                left: initial;
-            }
+        .use-motion .logo-line-before i {
+            left: initial;
+        }
 
-            .use-motion .logo-line-after i {
-                right: initial;
-            }
-        </style>
+        .use-motion .logo-line-after i {
+            right: initial;
+        }
+    </style>
     </noscript>
-</head>
+<link rel="stylesheet" href="/css/prism-xonokai.css" type="text/css"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
     <div class="container sidebar-position-left page-post-detail">
         <div class="headband"></div>
-        <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
             <div class="header-inner">
                 <div class="site-brand-wrapper">
                     <div class="site-meta ">
@@ -157,15 +156,15 @@
                 <div class="content-wrap">
                     <div id="content" class="content">
                         <div id="posts" class="posts-expand">
-                            <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+                            <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
                                 <div class="post-block">
                                     <link itemprop="mainEntityOfPage" href="https://marsgt.github.io/2017/02/07/随手记-疯狂触发滚轮事件的Mac触控板/">
-                                    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                         <meta itemprop="name" content="某熊猫桑">
-                                        <meta itemprop="description" content>
+                                        <meta itemprop="description" content="">
                                         <meta itemprop="image" content="/images/avatar.jpg">
                                     </span>
-                                    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
                                         <meta itemprop="name" content="某熊猫桑·自留地">
                                     </span>
                                     <header class="post-header">
@@ -184,7 +183,7 @@
                                                     <i class="fa fa-folder-o"></i>
                                                 </span>
                                                 <span class="post-meta-item-text">分类于</span>
-                                                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                                                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/" itemprop="url" rel="index"><span itemprop="name">经验技巧</span></a></span> ， <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/经验技巧/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
                                             </span>
                                         </div>
                                     </header>
@@ -194,73 +193,70 @@
                                         <p>这个bug来的莫名其妙，问了一圈人也没什么思路，后来自己上网搜，在一个页面上找到一段关于Mac的触控板的手势滑动会疯狂触发滚轮事件的记录，但是轮到具体的解决方案就语焉不详了。没辙，靠天没用，还是靠自己吧~</p>
                                         <p>这里先简单介绍下。出问题的首页用的是iscroll插件，用<code>snap</code>属性做的整屏翻页的效果，翻页用鼠标滚轮驱动，这块用的是MDN上的一个滚轮事件的兼容代码，回调使用iscroll的接口完成向上/向下翻页的效果。</p>
                                         <p>回到这个问题上。一开始我想用事件防抖解决，于是用<code>setTimeout()</code>自己写了个：触发事件后先进入延时，延时后执行函数；如果在延时内仍有事件触发，则取消原有的延时重新计时。</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="comment">// 打底用的zepto.js，addWheelListener是滚轮事件的兼容插件，下同~</span></span><br><span class="line"><span class="keyword">var</span> wheelTimer = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> wheelSlide = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    clearTimeout(timer);</span><br><span class="line">    <span class="keyword">if</span> (e.deltaY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        wheelTimer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">44    iScroll.next();</span><br><span class="line">44&#125;, <span class="number">100</span>);</span><br><span class="line">4&#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.deltaY &lt; <span class="number">0</span> &amp;&amp; iScroll.currentPage.pageY != <span class="number">0</span>) &#123;</span><br><span class="line">        wheelTimer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">44    iScroll.prev();</span><br><span class="line">4    &#125;, <span class="number">100</span>);</span><br><span class="line">4&#125;</span><br><span class="line">&#125;</span><br><span class="line">addWheelListener($(<span class="string">'body'</span>)[<span class="number">0</span>], wheelSlide);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 打底用的zepto.js，addWheelListener是滚轮事件的兼容插件，下同~</span>
+<span class="token keyword">var</span> wheelTimer <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> wheelSlide <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wheelTimer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            iScroll<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> iScroll<span class="token punctuation">.</span>currentPage<span class="token punctuation">.</span>pageY <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wheelTimer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            iScroll<span class="token punctuation">.</span><span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">addWheelListener</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> wheelSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>我本意是用延时抵消掉重复触发的滚轮事件，最后合成一个事件触发，没想到测试之后，Mac上的问题并没有解决。</p>
                                         <p>于是我想，用事件防抖的思路处理应该还是不对，即便是延迟时间较短，如果事件持续触发的话肯定翻页还是会被无限的延迟阻塞掉，至此我想换用事件节流再试试。在找资料的时候，意外发现了Underscore.js这个工具库，里边不仅有现成的节流和防抖（中文文档里用的是“防反跳”）函数可以用，而且还支持链式调用，并且压缩版本也才十几k，正合我意。</p>
                                         <p>说干就干，马上用Underscore撸了个事件节流版的：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">var</span> wheelSlide = _(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">4<span class="keyword">if</span> (e.deltaY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">44iScroll.next();</span><br><span class="line">4&#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.deltaY &lt; <span class="number">0</span> &amp;&amp; iScroll.currentPage.pageY != <span class="number">0</span>) &#123;</span><br><span class="line">44iScroll.prev();</span><br><span class="line">4&#125;</span><br><span class="line">&#125;).throttle(<span class="number">400</span>);<span class="comment">//这里毫秒数用了400，大概相当于一个短动画的执行时间</span></span><br><span class="line">addWheelListener($(<span class="string">'body'</span>)[<span class="number">0</span>], wheelSlide);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> wheelSlide <span class="token operator">=</span> <span class="token function">_</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        iScroll<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> iScroll<span class="token punctuation">.</span>currentPage<span class="token punctuation">.</span>pageY <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        iScroll<span class="token punctuation">.</span><span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里毫秒数用了400，大概相当于一个短动画的执行时间</span>
+<span class="token function">addWheelListener</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> wheelSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>链式写法看上去还挺不错的！进本机浏览器（PC）……嗯？为啥最后会跳一下？赶紧翻文档，又加了个参数上去：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">var</span> wheelSlide = _(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">4<span class="keyword">if</span> (e.deltaY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">44iScroll.next();</span><br><span class="line">4&#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.deltaY &lt; <span class="number">0</span> &amp;&amp; iScroll.currentPage.pageY != <span class="number">0</span>) &#123;</span><br><span class="line">44iScroll.prev();</span><br><span class="line">4&#125;</span><br><span class="line">&#125;).throttle(<span class="number">400</span>, &#123;<span class="attr">trailing</span>: <span class="literal">false</span>&#125;);</span><br><span class="line">addWheelListener($(<span class="string">'body'</span>)[<span class="number">0</span>], wheelSlide);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> wheelSlide <span class="token operator">=</span> <span class="token function">_</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        iScroll<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> iScroll<span class="token punctuation">.</span>currentPage<span class="token punctuation">.</span>pageY <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        iScroll<span class="token punctuation">.</span><span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>trailing<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">addWheelListener</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> wheelSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>这回PC上倒是正常了，Mac也从一滑到底变成了有“段落感”的跳动，但结果还是不对……<br>一狠心把毫秒数改成了5000，结果呢：还、是、不、对、、、。。。<br>（//陷入循环懵逼状态ing……）<br>痛定思痛，一定是文档看的不够多！于是又啃了一遍Underscore.js的文档（虽然是翻译的，囧……），发现防抖居然有个<code>[immediate]</code>参数，是可以优先执行的！大喜过望~接着撸：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">var</span> wheelSlide = _(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">4<span class="keyword">if</span> (e.deltaY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">44wScroll.next();</span><br><span class="line">4&#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.deltaY &lt; <span class="number">0</span> &amp;&amp; wScroll.currentPage.pageY != <span class="number">0</span>) &#123;</span><br><span class="line">44wScroll.prev();</span><br><span class="line">4&#125;</span><br><span class="line">&#125;).debounce(<span class="number">600</span>, <span class="literal">true</span>);<span class="comment">// 本来想改回400的，有点心虚所以又加了200……</span></span><br><span class="line">addWheelListener($(<span class="string">'body'</span>)[<span class="number">0</span>], wheelSlide);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> wheelSlide <span class="token operator">=</span> <span class="token function">_</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wScroll<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> wScroll<span class="token punctuation">.</span>currentPage<span class="token punctuation">.</span>pageY <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wScroll<span class="token punctuation">.</span><span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">debounce</span><span class="token punctuation">(</span><span class="token number">600</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 本来想改回400的，有点心虚所以又加了200……</span>
+<span class="token function">addWheelListener</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> wheelSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <p>居然PC和Mac都能一页页的翻页了有！没！有！不过翻页的动作还有点迟滞，于是果断把毫秒数改小：400、200、100，……Bingo！</p>
                                         <p>最终代码：</p>
-                                        <figure class="highlight javascript">
-                                            <table>
-                                                <tr>
-                                                    <td class="gutter">
-                                                        <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
-                                                    </td>
-                                                    <td class="code">
-                                                        <pre><span class="line"><span class="keyword">var</span> wheelSlide = _(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">4<span class="keyword">if</span> (e.deltaY &gt; <span class="number">0</span>) &#123;</span><br><span class="line">44wScroll.next();</span><br><span class="line">4&#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.deltaY &lt; <span class="number">0</span> &amp;&amp; wScroll.currentPage.pageY != <span class="number">0</span>) &#123;</span><br><span class="line">44wScroll.prev();</span><br><span class="line">4&#125;</span><br><span class="line">&#125;).debounce(<span class="number">50</span>, <span class="literal">true</span>);</span><br><span class="line">addWheelListener($(<span class="string">'body'</span>)[<span class="number">0</span>], wheelSlide);</span><br></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </figure>
+                                        <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> wheelSlide <span class="token operator">=</span> <span class="token function">_</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wScroll<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>deltaY <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> wScroll<span class="token punctuation">.</span>currentPage<span class="token punctuation">.</span>pageY <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        wScroll<span class="token punctuation">.</span><span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">debounce</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">addWheelListener</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> wheelSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
                                         <hr>
                                         <p>总结：</p>
                                         <ol>
@@ -335,7 +331,7 @@
                     <div class="sidebar-inner">
                         <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
                             <div class="site-overview">
-                                <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
                                     <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="某熊猫桑">
                                     <p class="site-author-name" itemprop="name">某熊猫桑</p>
                                     <p class="site-description motion-element" itemprop="description"></p>
